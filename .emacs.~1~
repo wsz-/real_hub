@@ -1,0 +1,157 @@
+(add-to-list 'load-path "d:/home/emacs-24.1/site-lisp/slime/")
+(setq inferior-lisp-program "d:/home/emacs-24.1/bin/clisp/clisp.exe")
+(load "d:/home/emacs-24.1/site-lisp/wsz/wsz.el") 
+(add-to-list 'load-path "d:/home/emacs-24.1/site-lisp/emacs-wiki/")
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(global-font-lock-mode t)
+(global-set-key "\C-z" nil)
+;; 打开图片
+(auto-image-file-mode t)
+;; 最大化
+(defun w32-maximize-frame (&optional arg)
+  "最大化"
+  (interactive)
+  (w32-send-sys-command 61488 arg))
+(global-set-key [(control f12)] 'w32-maximize-frame)
+;;
+(global-set-key "\C-c9" (lambda() (interactive)( find-file "~/.emacs")))
+(global-set-key "\C-c5" (lambda() (interactive)( dired "d:/home/emacs-24.1/")))
+(global-set-key "\C-c0" 'eshell)
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq frame-title-format "emacs@%b")
+(auto-image-file-mode t)
+(global-font-lock-mode t)
+(setq version-control t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Key Binding.
+(global-set-key [(control &)] (function (lambda() (interactive) (scroll-down 1))))
+(global-set-key [(control *)] (function (lambda() (interactive) (scroll-up 1))))
+(global-set-key "\C-c\C-c"        'comment-region)
+(global-set-key "\M-o" 'other-window)
+(global-set-key "\C-c\C-g" 'goto-line)
+(global-set-key "\C-ci" 'overwrite-mode)
+(global-set-key "\C-x\C-b" 'bs-show)    ;; or another key
+(global-set-key "\M-p"  'bs-cycle-previous)
+(global-set-key "\M-n"  'bs-cycle-next)
+
+;;;;;;;;;;;;;;;;;;;;move
+;(global-set-key   [C-M-up]        'my-move-region-up)
+(global-set-key   [C-S-up]        'my-move-line-up)
+(global-set-key   [C-S-down]      'my-move-line-down)
+(global-set-key   [C-M-down]      'my-dup-line-down)
+(global-set-key   [S-down]        'ue-select-line-(global-set-key   [S-down]        'ue-select-line-down-continued)
+(global-set-key [C-M-left] (function (lambda()(interactive)
+           (enlarge-window 10))))
+(global-set-key [C-M-right] (function (lambda()(interactive)
+           (enlarge-window-horizontally 10))))
+;;;;for change default font size.
+(create-fontset-from-fontset-spec
+  "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-most,
+chinese-gbk:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-gb2312:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gb2312*-*,
+chinese-cns11643-5:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-cns11643-6:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-cns11643-7:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+korean-ksc5601:-*-Batang-normal-r-*-*-14-*-*-*-c-*-ksc5601.1987*-*,
+chinese-big5-1:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+chinese-big5-2:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
+(setq default-frame-alist
+        (append
+        '((font . "fontset-most"))
+        default-frame-alist))
+;;emacs-wiki
+(require 'emacs-wiki)
+
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py'" . python-mode))
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(require 'pycomplete)
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+(setq interpreter-mode-alist(cons '("python" . python-mode)
+                           interpreter-mode-alist))
+(require 'auto-complete)
+(require 'auto-complete-config)
+(global-auto-complete-mode t)
+(setq-default ac-sources '(ac-source-words-in-same-mode-buffers))
+(add-hook 'emacs-lisp-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-symbols)))
+(add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
+(set-face-background 'ac-candidate-face "lightgray")
+(set-face-underline 'ac-candidate-face "darkgray")
+(set-face-background 'ac-selection-face "steelblue") ;;; 设置比上面截图中更好看的背景颜色
+(define-key ac-completing-map "\M-n" 'ac-next)  ;;; 列表中通过按M-n来向下移动
+(define-key ac-completing-map "\M-p" 'ac-previous)
+(setq ac-auto-start 2)
+(setq ac-dwim t)
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-todo-keywords '((sequencep "TODO" "正处理" "待废弃" "|" "DONE" "已废弃")))
+(setq org-agenda-files (list "~/org/work.org"
+                             "~/org/home.org"
+			     "~/org/java.org"
+			     "~/org/learn.org"))
+(setq org-default-notes-file "~/.notes")
+;;日期
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+(display-time)
+;;TODO 模式
+(setq todo-file-do "~/emacs/todo/do")
+(setq todo-file-done "~/emacs/todo/done")
+(setq todo-file-top "~/emacs/todo/top")
+(setq diary-file "~/emacs/diary")
+(setq diary-mail-addr "ivyicy@qq.com")
+(add-hook 'diary-hook 'appt-make-list)
+;;打开约会提醒功能
+(setq appt-issue-message t)
+;;绑定快捷键
+(global-set-key [(f9)] 'list-bookmarks)
+(global-set-key [(f12)] 'org-remember)
+(global-set-key [(f11)] 'calendar)
+(global-set-key [(f10)] 'todo-mode)
+(global-set-key [(control \?)] 'comment-line-or-uncomment-it)
+(global-set-key [(meta ?/)] 'hippie-expand)   
+(setq hippie-expand-try-functions-list   
+      '(try-expand-line   
+	try-expand-line-all-buffers   
+	try-expand-list   
+	try-expand-list-all-buffers   
+	try-expand-dabbrev   
+	try-expand-dabbrev-visible   
+	try-expand-dabbrev-all-buffers   
+	try-expand-dabbrev-from-kill   
+	try-complete-file-name   
+	try-complete-file-name-partially   
+	try-complete-lisp-symbol   
+	try-complete-lisp-symbol-partially   
+	try-expand-whole-kll))
+;;禁用启动画面
+(setq inhibit-startup-message t)
+;;尺寸
+(setq initial-frame-alist '( (width . 90) (height . 35)))
+;;高亮显示成对括号
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+(linum-mode t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((todo-categories "异常" "正常" "java")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(put 'upcase-region 'disabled nil)

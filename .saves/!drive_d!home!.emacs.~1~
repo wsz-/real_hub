@@ -1,0 +1,606 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GLOBAL;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(global-font-lock-mode t)
+;(transient-mark-mode nil)
+(global-set-key "\C-z" nil)
+(global-set-key "\C-z" (lambda()(interactive)  (set 'truncate-partial-width-windows (not truncate-partial-width-windows))))
+
+(setq bookmark-save-flag 1)
+(setq truncate-partial-width-windows t)
+( auto-revert-mode t)
+;;让 Emacs 可以直接打开和显示图片。 
+(auto-image-file-mode)
+
+;;backup setting
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.saves"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)       ; use versioned backups
+;;;;;;;;;;GUI
+;; (set-cursor-color "steelblue")
+;; (set-mouse-color "steelblue")
+(defun w32-maximize-frame (&optional arg)
+    "Maximize the current frame"
+     (interactive)
+     (w32-send-sys-command 61488 arg))
+(global-set-key [(control f12)] 'w32-maximize-frame)
+
+
+;;;;;;;;;;ange.
+(setq ange-ftp-ftp-program-name "e:/emacs/bin/release/ftp.exe")
+(setq ange-ftp-ftp-program-name "e:/cygwin/bin/ftp.exe")
+
+
+;;;;;;;;;; cygwin
+;;  ;; This assumes that Cygwin is installed in C:\cygwin (the
+;;  ;; default) and that C:\cygwin\bin is not already in your
+;;  ;; Windows Path (it generally should not be).
+;;  ;;
+  (setq exec-path (cons "C:/cygwin/bin" exec-path))
+  (setenv "PATH" (concat "C:\\cygwin\\bin;" (getenv "PATH")))
+;;  ;;
+;;  ;; NT-emacs assumes a Windows command shell, which you change
+;;  ;; here.
+;;  ;;
+  (setq process-coding-system-alist '(("bash" . undecided-unix)))
+  (setq shell-file-name "bash")
+  (setenv "SHEdLL" shell-file-name) 
+  (setq explicit-shell-file-name shell-file-name) 
+;;  ;;
+;;  ;; This removes unsightly ^M characters that would otherwise
+;;  ;; appear in the output of java applications.
+;;  ;;
+  (add-hook 'comint-output-filter-functions
+            'comint-strip-ctrl-m)
+
+(setq tramp-default-method "ftp")
+
+
+;;;;;;;;;; Shot cut
+(global-set-key "\C-c9" (lambda() (interactive)( find-file "~/.emacs")))
+(global-set-key "\C-c5" (lambda() (interactive)( dired "d:/emacs/site-lisp")))
+(global-set-key "\C-c0" 'eshell)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+
+(setq frame-title-format "emacs@%b")
+(auto-image-file-mode t)
+(global-font-lock-mode t)
+
+(setq version-control t)
+(setq kept-new-versions 3)
+(setq delete-old-versions t)
+(setq kept-old-versions 2)
+(setq dired-kept-versions 1)
+
+(line-number-mode t)
+(column-number-mode t)
+;;;;screen line
+;;screen-lines. not work well.
+;;    (autoload 'screen-lines-mode "screen-lines"
+;;              "Toggle Screen Lines minor mode for the current buffer." t)
+;;    (autoload 'turn-on-screen-lines-mode "screen-lines"
+;;              "Turn on Screen Lines minor mode for the current buffer." t)
+;;    (autoload 'turn-off-screen-lines-mode "screen-lines"
+;;              "Turn off Screen Lines minor mode for the current buffer." t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Key Binding.
+(global-set-key [(control &)] (function (lambda() (interactive) (scroll-down 1))))
+(global-set-key [(control *)] (function (lambda() (interactive) (scroll-up 1))))
+(global-set-key "\C-c\C-c"        'comment-region)
+(global-set-key "\M-o" 'other-window)
+(global-set-key "\C-c\C-g" 'goto-line)
+(global-set-key "\C-ci" 'overwrite-mode)
+(global-set-key "\C-x\C-b" 'bs-show)    ;; or another key
+(global-set-key "\M-p"  'bs-cycle-previous)
+(global-set-key "\M-n"  'bs-cycle-next)
+
+
+;;;;;;;;;;;;;;;;;;;;move
+;(global-set-key   [C-M-up]        'my-move-region-up)
+(global-set-key   [C-S-up]        'my-move-line-up)
+(global-set-key   [C-S-down]      'my-move-line-down)
+(global-set-key   [C-M-down]      'my-dup-line-down)
+(global-set-key   [S-down]        'ue-select-line-down-continued)
+
+(global-set-key [C-M-left] (function (lambda()(interactive)
+           (enlarge-window 10))))
+(global-set-key [C-M-right] (function (lambda()(interactive)
+           (enlarge-window-horizontally 10))))
+;;;;for change default font size.
+(create-fontset-from-fontset-spec
+  "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-most,
+chinese-gbk:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-gb2312:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gb2312*-*,
+chinese-cns11643-5:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-cns11643-6:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-cns11643-7:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+korean-ksc5601:-*-Batang-normal-r-*-*-14-*-*-*-c-*-ksc5601.1987*-*,
+chinese-big5-1:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+chinese-big5-2:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
+
+(setq default-frame-alist
+        (append
+        '((font . "fontset-most"))
+        default-frame-alist))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Program;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;C/++ Mode
+
+(setq compilation-scroll-output t)
+(setq-default compile-command "nmake /f itmcit.mak /S /C")
+
+
+(global-set-key [f3] 'previous-error)
+(global-set-key [f4] 'next-error)
+(global-set-key [f7]  'compile)
+(global-set-key [(control f7)] (lambda () (interactive) (dd-open-h-cpp 0)))
+(global-set-key [(control f6)] (lambda () (interactive) (dd-open-h-cpp 1)))
+
+(add-hook 'c-mode-hook    'imenu-add-menubar-index)
+(add-hook 'c++-mode-hook  'imenu-add-menubar-index)
+
+(add-hook 'c-mode-hook         'hs-minor-mode)
+(add-hook 'c-mode-hook         (function (lambda()(interactive)
+          (c-set-style "bsd")
+          (setq c-basic-offset 4)
+          (setq tab-width 4)
+          (define-key c-mode-map "=" (lambda()(interactive)(insert " = ")))
+          (define-key c-mode-map [(control =)] (lambda()(interactive)(insert " == ")))
+          )))
+
+(add-hook 'c++-mode-hook         'hs-minor-mode)
+(add-hook 'c++-mode-hook         (function (lambda()(interactive)
+          (c-set-style "bsd")
+          (setq c-basic-offset 4)
+          (setq tab-width 4)
+          (define-key c++-mode-map "=" (lambda()(interactive)(insert " = ")))
+          (define-key c++-mode-map [(control =)] (lambda()(interactive)(insert " == ")))
+          )))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Other enhancement
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;ECB
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key [(f5)] 'speedbar-get-focus)
+
+;menu
+(define-key-after (lookup-key global-map [menu-bar tools])
+[speedbar] '("Speedbar" . speedbar-frame-mode) [calendar])
+;;;;;;;;ECB END;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;XREF
+;; (setq load-path (cons "e:/emacs/site-lisp/xref/emacs" load-path))
+;; (setq exec-path (cons "e:/emacs/site-lisp/xref" exec-path))
+;; (load "xrefactory")
+
+;;;;;;;;;;Speed Bar
+;; his-speedbar-no-separate-frame
+(defconst his-speedbar-buffer-name "SPEEDBAR")
+(defun his-speedbar-no-separate-frame ()
+  (intERACTIVE)
+  (when (not (buffer-live-p speedbar-buffer))
+    (setq speedbar-buffer (get-buffer-create his-speedbar-buffer-name)
+          speedbar-frame (selected-frame)
+          dframe-attached-frame (selected-frame)
+          speedbar-select-frame-method 'attached
+          speedbar-verbosity-level 0
+          speedbar-last-selected-file nil)
+    (set-buffer speedbar-buffer)
+    (speedbar-mode)
+    (speedbar-reconfigure-keymaps)
+    (speedbar-update-contents)
+    (speedbar-set-timer 1)
+    (make-local-hook 'kill-buffer-hook)
+    (add-hook 'kill-buffer-hook
+              (lambda () (when (eq (current-buffer) speedbar-buffer)
+                           (setq speedbar-frame nil
+                                 dframe-attached-frame nil
+                                 speedbar-buffer nil)
+                           (speedbar-set-timer nil)))))
+  (set-window-buffer (selected-window)
+                     (get-buffer his-speedbar-buffer-name)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;HTML
+
+;;html/xml mode
+(require 'sgml-mode)
+(setq auto-mode-alist (cons '( "\\.asp.\\'" . html-mode ) auto-mode-alist ))
+(setq auto-mode-alist (cons '( "\\.ascx\\'" . html-mode ) auto-mode-alist ))
+(setq auto-mode-alist (cons '( "\\.resx\\'" . xml-mode ) auto-mode-alist ))
+(define-key html-mode-map [(control f7)] (lambda () (interactive) (dd-open-aspx-cs 0)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Edit ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+(global-set-key [C-tab] (lambda()(interactive)(insert "\t")))
+(global-set-key [(control f10)] 'revert-buffer)  
+(setq ispell-program-name  "aspell")
+
+;;;;;;;;;;;;;;aspell
+;; (setq-default ispell-dictionary  "c:/program files/aspell")
+;;  (setq-default ispell-dictionary  "american")
+;;  (setq ispell-dictionary  "en-only.rws")
+;;  (setq ispell-library-directory "c:/cygwin/lib/aspell")
+;;  (setq-default ispell-local-dictionary "american")
+;;  (setq ispell-local-dictionary "american")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Dired;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;thumbs
+(autoload 'thumbs "thumbs" "Preview images in a directory." t)
+(put 'dired-find-alternate-file 'disabled nil)
+
+
+  (require 'dired)
+  (require 'dired-x)
+  ;; C-x C-j                 跳转到当前文件所在目录的 dired 缓冲[x]
+  (global-set-key "\C-x\C-j" 'dired-jump)
+;;   (define-key dired-mode-map "b" 'dired-mark-extension)
+;;   (define-key dired-mode-map "c" 'dired-up-directory)
+;;   (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
+     (define-key dired-mode-map "E" 'chunyu-dired-open-explorer)
+     (define-key dired-mode-map "P" 'dired-execute-file)
+     (define-key dired-mode-map "\M-[" 'dired-omit-mode)
+     (define-key dired-mode-map "\M-o" nil)
+     (define-key dired-mode-map "b" 'wdired-change-to-wdired-mode)
+
+;;   (define-key dired;;   (define-key dired-mode-map "r" 'dired-mark-files-regexp)
+;;   (define-key dired-mode-map "/" 'dired-mark-directories)
+;;   (define-key dired-mode-map "K" 'dired-kill-subdir)
+;;   (define-key dired-mode-map [(control ?/)] 'dired-undo)
+
+(put 'dired-find-alternate-file 'disabled nil)
+  (defun chunyu-dired-open-explorer ()
+    (interactive)
+    (let ((file-name (dired-get-file-for-visit)))
+      (if (file-exists-p file-name)
+          (w32-shell-execute "open" file-name nil 1))))
+
+;  同时打开所有做标记的文件：
+  (defun dired-execute-file (&optional arg)
+    (interactive "P")
+    (mapcar #'(lambda (file) (w32-shell-execute "open" file))
+            (dired-get-marked-files nil arg)))
+
+  (setq dired-listing-switches "-avl" ;; ls 文件列表参数
+        dired-recursive-copies 'top   ;; 复制目录时，递归复制所有字目录
+        dired-recursive-deletes 'top  ;; 删除目录时，递归删除所有字目录
+        cvs-dired-use-hook 'always)
+   ;; 浏览 CVS 时，自动打开 pcl-cvs 界面
+     (add-hook 'dired-load-hook
+               (lambda ()
+                 (load "dired-x")
+                 ;; Set dired-x global variables here.  For example:
+                 ;; (setq dired-guess-shell-gnutar "gtar")
+                 ;; (setq dired-x-hands-off-my-keys nil)
+                 ))
+     (add-hook 'dired-mode-hook
+               (lambda ()
+                 ;; Set dired-x buffer-local variables here.  For example:
+                 ;; (dired-omit-mode 1)
+                 ))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Daily;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key [(control f9)] 'calculator)
+(global-set-key [(control f11)] 'todo-show)
+(global-set-key [(control f4)] 'ffap)
+
+(global-set-key [f9] (lambda() (interactive)( find-file "~/WiKi/LifeNotes")))
+(global-set-key [f8] (lambda() (interactive)( find-file "~/WiKi/EmacsNotes")))
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+(display-time)
+
+;;todoo
+(autoload 'todoo "todoo" "TODO Mode" t)
+(add-to-list 'auto-mode-alist '("TODO$" . todoo-mode))
+
+;;todo
+(setq todo-file-do "~/todo/do")
+(setq todo-file-done "~/todo/done")
+(setq todo-file-top "~/todo/top")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Gnus;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq gnus-group-name-charset-group-alist '((".*" . gb2312)))
+(global-set-key [f3] 'gnus-unplugged);;这里定义后，可以通过按f3键来启动gnus
+;; (add-to-list 'load-path "c:/emacs/site-lisp/gnus-5.10.6/lisp")
+;; (setq gnus-group-name-charset-group-alist '((".*" . gb2312)))
+;; (require 'info)
+;; (setq Info-default-directory-list 
+;;       (cons "c:/emacs/site-lisp/gnus-5.10.6/texi" Info-default-directory-list))
+
+;; ;; (require 'gnus-load)
+;; ;; (custom-set-variables
+;; ;;   ;; custom-set-variables was added by Custom.
+;; ;;   ;; If you edit it by hand, you could mess it up, so be careful.
+;; ;;   ;; Your init file should contain only one such instance.
+;; ;;   ;; If there is more than one, they won't work right.
+;; ;;  '(canlock-password "f596c5b174e1700a189a83b4299fceb848a98c00"))
+;; ;; (custom-set-faces
+;; ;;   ;; custom-set-faces was added by Custom.
+;; ;;   ;; If you edit it by hand, you could mess it up, so be careful.
+;; ;;   ;; Your init file should contain only one such instance.
+;; ;;   ;; If there is more than one, they won't work right.
+;; ;;  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;DD Define
+
+(defun change-case-char(beginpos)
+  "change char's case "
+  (goto-char (+ 1 beginpos))
+  (setq nAsc (preceding-char))
+  (if (and (> nAsc 64) (< nAsc 91))
+      (downcase-region beginpos (+ 1 beginpos))
+    (upcase-region beginpos (+ 1  beginpos))
+    )
+  )
+
+(defun change-case-region()
+  "chagne region's case"
+  (interactive)
+  (setq num (- (mark) (point)))
+  (if (> (mark) (point))
+      ((lambda ()
+  (setq beginpos (point))
+  (setq endpos (mark)))
+       )
+    ((lambda () 
+       (setq beginpos (mark))
+       (setq endpos (point))))
+   
+    )
+  (goto-char beginpos)
+  (while (< beginpos endpos)
+    (change-case-char beginpos)
+    (setq beginpos (+ 1 beginpos))
+    )
+  )
+
+(global-set-key [f12] 'change-case-region)
+
+
+;;open related head/cpp file
+
+(defun dd-open-h-cpp (p)
+"open related header file or cpp file"
+(interactive "p")   
+    (setq wholename (buffer-file-name))
+      (setq nameext (file-name-extension wholename))
+      (if (string= nameext "h")
+   (
+    (lambda()
+      (setq namenew (concat (file-name-sans-extension wholename) ".cpp"))
+        ( if(= p 0)
+     (find-file namenew)
+   (find-file-other-window namenew)
+   )
+        
+      )
+    )
+       
+ )
+      (if (string= nameext "cpp")
+   (
+    (lambda()
+      (setq namenew (concat (file-name-sans-extension wholename) ".h"))
+        ( if(= p 0)
+     (find-file namenew)
+   (find-file-other-window namenew)
+   )
+
+        )
+      
+    )
+       
+ )
+)
+
+
+;;c sharp mode
+(defun dd-open-aspx-cs (p)
+"open related header file or cpp file"
+(interactive "p")   
+    (setq wholename (buffer-file-name))
+      (setq nameext (file-name-extension wholename))
+      (if (string= nameext "cs")
+   (
+    (lambda()
+      (setq namenew  (file-name-sans-extension wholename) )
+        ( if(= p 0)
+     (find-file namenew)
+   (find-file-other-window namenew)
+   )
+        
+      )
+    )
+       
+ )
+      (if (or (string= nameext "aspx") (string= nameext "ascx"))
+   (
+    (lambda()
+      (setq namenew (concat wholename ".cs"))
+        ( if(= p 0)
+     (find-file namenew)
+   (find-file-other-window namenew)
+   )
+
+        )
+      
+    )
+       
+ )
+)
+
+(defun dd-open-aspx-cs-current-window ()
+  "dd-open-aspx-cs-current-window"
+  (interactive)
+  (dd-open-aspx-cs 0)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;move line
+
+;; copy line
+(defun kill-ring-save-current-line ()
+  "copy the current non-empty line to the kill-ring"
+  (interactive)
+  (unless (equal (line-beginning-position) (line-end-position))
+    (kill-ring-save (line-beginning-position) (line-end-position))))
+
+;; bind it
+(global-set-key [(control \;)] 'kill-ring-save-current-line)
+
+(defun my-move-region-up (p)                  ;;向上移动本行
+  "move current region up"
+  (interactive "p")
+  (let ((c (current-column)))
+    (beginning-of-line)
+    (kill-region )
+;    (previous-line p)
+ ;   (beginning-of-line)
+;    (yank)
+;    (previous-line 1)
+;    (move-to-column c))
+
+))
+
+(defun my-move-line-up (p)                  ;;向上移动本行
+  "move current line up"
+  (interactive "p")
+  (let ((c (current-column)))
+    (beginning-of-line)
+    (kill-line 1)
+    (previous-line p)
+    (beginning-of-line)
+    (yank)
+    (previous-line 1)
+    (move-to-column c)))
+
+(defun my-move-line-down (p)                ;;向下移动本行
+  "move current line down"
+  (interactive "p")
+  (let ((c (current-column)))
+    (beginning-of-line)
+    (kill-line 1)
+    (next-line p)
+    (beginning-of-line)
+    (yank)
+    (previous-line 1)
+    (move-to-column c)))
+(defun my-dup-line-down ()                  ;;复制本行到下一行
+  "duplicate this line at next line"
+  (interactive)
+  (let ((c (current-column)))
+    (beginning-of-line)
+    (ue-select-line-down)
+    (beginning-of-line)
+    (yank)
+    (previous-line 1)
+    (move-to-column c)))
+
+(defvar ue-selection-last-point nil
+  "Indicates whether to kill-append or kill-new")
+(defvar ue-selection-total-lines 0
+  "Total number of lines appended so far to the last item in kill-ring")
+
+(defun ue-selection-update-cont ()
+  "Update `ue-selection-last-point' variable"
+  (if (and this-command
+           (string= (format "%s" this-command)
+                    "ue-select-line-down-continued"))
+      (setq ue-selection-last-point (point))
+    (setq ue-selection-total-lines 0)
+    (setq ue-selection-last-point  nil)))
+
+(add-hook 'post-command-hook 'ue-selection-update-cont)
+
+(defun ue-select-line-down-continued ()     ;;连续复制多行
+  "like Shift+down in UltraEdit, but do no selection.
+;; Just put these continuous lines all toghether as a new item in kill-ring.
+;; Messages will appear in minibuffer telling you how many lines were copied.
+;; Continuous commands with no interruption append new lines to the item.
+;; Any non-ue-select-line-down-continued command will stop gathering new lines
+;; and make a new item in kill-ring.
+
+;; post-command-hook is used in detecting the continuity of this command.
+;; check `ue-selection-update-cont' and `post-command-hook'."
+  (interactive)
+  (let ((s (point)))
+    (setq next-line-add-newlines t)
+    (next-line 1)
+    (setq next-line-add-newlines nil)
+    (if (and ue-selection-last-point
+             (= (save-excursion
+                  (when (> (count-lines (point-min) (point)) 1)
+                    (previous-line 1))
+                  (point))
+                ue-selection-last-point))
+        (progn
+          (kill-append (buffer-substring s (point)) nil)
+          (setq ue-selection-total-lines (1+ ue-selection-total-lines))
+          (message (format "%s lines copied" ue-selection-total-lines)))
+      (kill-new (buffer-substring s (point)))
+      (message "1 line copied")
+      ;; some errors will cause post-command-hook deletion
+      ;; so add-hook every time after we add the first line
+      (add-hook 'post-command-hook 'ue-selection-update-cont)
+      (setq ue-selection-total-lines 1))))
+
+(defun ue-select-line-down ()
+  "like Shift+down in UltraEdit."
+  (interactive)
+  (let ((s (point)))
+  (setq next-line-add-newlines t)
+  (next-line 1)
+  (setq next-line-add-newlines nil)
+  (kill-new (buffer-substring s (point)))))
+
+;;;;;;;;;;rotate window
+(defun my-retate-windows ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((wl    (window-list))
+             (w1    (frame-first-window))
+             (w2    (if (equal w1 (car wl)) (cadr wl) (car wl)))
+             (b1    (window-buffer w1))
+             (b2    (window-buffer w2))
+             (first (if (equal (current-buffer) b1) t nil)))
+        (if (= (window-width) (frame-width))
+            (split-window-horizontally)
+          (split-window-vertically))
+        (other-window 2)
+        (delete-window)
+        (switch-to-buffer b1)
+        (other-window 1)
+        (switch-to-buffer b2)
+        (when first (other-window 1)))
+    (message "There are not exactly 2 windows.")))
+(global-set-key [(control f5)] 'my-retate-windows)
+
+
+(provide 'dddefine)

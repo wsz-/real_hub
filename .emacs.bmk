@@ -1,0 +1,30 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("euler.el"
+ (filename . "d:/home/emacs-24.1/site-lisp/wsz/euler.el")
+ (front-context-string)
+ (rear-context-string . "于记录欧拉计划的elisp版本\n")
+ (position . 23))
+("learn-elisp.el"
+ (filename . "d:/home/emacs-24.1/site-lisp/wsz/learn-elisp.el")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+(".notes"
+ (filename . "d:/home/.notes")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("do"
+ (filename . "d:/home/emacs/todo/do")
+ (front-context-string . "*/* 2012-08-16 0")
+ (rear-context-string)
+ (position . 269))
+("done"
+ (filename . "d:/home/emacs/todo/done")
+ (front-context-string . "2012-08-13 11:55")
+ (rear-context-string)
+ (position . 1))
+)

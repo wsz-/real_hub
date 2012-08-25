@@ -1,0 +1,20 @@
+;; Object build/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "build/"
+  :tables (list 
+   (semanticdb-table "setup.py"
+    :major-mode 'python-mode
+    :tags 
+        '( ("setuptools" include nil nil [1 44])
+            ("setup" code nil nil [45 194]))          
+    :file "setup.py"
+    :pointmax 195
+    :fsize 205
+    :lastmodtime '(20489 5794)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!drive_d!home!abc!python2!build!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.0"
+  )

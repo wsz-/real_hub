@@ -1,0 +1,5 @@
+'tim'
+1146: Table 'xedk.cr_unionmem' doesn't exist
+'lon'
+1146: Table 'cms.pz' doesn't exist
+global name 'raw_input' is not definedglobal name 'raw_input' is not defined

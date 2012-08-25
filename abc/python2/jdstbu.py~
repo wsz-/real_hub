@@ -1,0 +1,11 @@
+import random
+st=['st','jz']
+jz=['jz','st']
+bu=['bu','st']
+mapp={
+    'st':st,
+    'jz':jz,
+    'bu':bu}
+user=raw_input("input st bu jz?:")
+computer=random.sample(['st','bu','jz'])
+print mapp[user][0]==mapp[computer][0] and 'equal' or mapp[user][1]==mapp[computer][1]

@@ -1,0 +1,115 @@
+;; Object python2/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "python2/"
+  :tables (list 
+   (semanticdb-table "tt.py"
+    :major-mode 'python-mode
+    :tags 
+        '( ("tt" function (:arguments 
+              ( ("args" variable nil (reparse-symbol function_parameters) [32 37])
+                ("karg" variable nil (reparse-symbol function_parameters) [38 44]))              ) nil [25 836])
+            ("ttn" function (:arguments 
+              ( ("func" variable nil (reparse-symbol function_parameters) [844 848]))              ) nil [836 1040])
+            ("ttn" code nil nil [1041 1044])
+            ("test" function (:arguments 
+              ( ("ma" variable nil (reparse-symbol function_parameters) [1054 1056]))              ) nil [1045 1307])
+            ("if" code nil nil [1307 1351]))          
+    :file "tt.py"
+    :pointmax 1352
+    :fsize 1469
+    :lastmodtime '(20489 15913)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "project_1.py"
+    :major-mode 'python-mode
+    :tags 
+        '( ("addIt" function (:arguments 
+              ( ("base" variable nil (reparse-symbol function_parameters) [11 15])
+                ("end" variable nil (reparse-symbol function_parameters) [18 21])
+                ("step" variable nil (reparse-symbol function_parameters) [27 31]))              ) nil [1 158])
+            ("addIt2" function (:arguments 
+              ( ("end" variable nil (reparse-symbol function_parameters) [169 172]))              ) nil [158 358])
+            ("test" function nil nil [358 419])
+            ("if" code nil nil [419 470]))          
+    :file "project_1.py"
+    :pointmax 470
+    :fsize 486
+    :lastmodtime '(20478 25542)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "find_prime.py"
+    :major-mode 'python-mode
+    :tags 
+        '( ("findPrime" function (:arguments 
+              ( ("n" variable nil (reparse-symbol function_parameters) [39 40]))              ) nil [25 188])
+            ("findPrime2" function (:arguments 
+              ( ("n" variable nil (reparse-symbol function_parameters) [203 204]))              ) nil [188 353])
+            ("isPrime" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [365 366])
+                ("ma" variable nil (reparse-symbol function_parameters) [367 369]))              ) nil [353 532])
+            ("square" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [543 544]))              ) nil [532 562])
+            ("isPrime2" function (:arguments 
+              ( ("n" variable nil (reparse-symbol function_parameters) [575 576])
+                ("a" variable nil (reparse-symbol function_parameters) [580 581]))              ) nil [562 962])
+            ("mod" function (:arguments 
+              ( ("a" variable nil (reparse-symbol function_parameters) [970 971])
+                ("x" variable nil (reparse-symbol function_parameters) [972 973])
+                ("n" variable nil (reparse-symbol function_parameters) [974 975]))              ) nil [962 1107])
+            ("if" code nil nil [1107 1363]))          
+    :file "find_prime.py"
+    :pointmax 1363
+    :fsize 1426
+    :lastmodtime '(20489 20167)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "tt_setup.py"
+    :major-mode 'python-mode
+    :tags 
+        '( ("setuptools" include nil nil [1 44])
+            ("setup" code nil nil [45 204]))          
+    :file "tt_setup.py"
+    :pointmax 205
+    :fsize 215
+    :lastmodtime '(20489 5706)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "project_7.py"
+    :major-mode 'python-mode
+    :tags 
+        '( ("findPrime" function (:arguments 
+              ( ("n" variable nil (reparse-symbol function_parameters) [39 40]))              ) nil [25 188])
+            ("findPrime2" function (:arguments 
+              ( ("n" variable nil (reparse-symbol function_parameters) [203 204]))              ) nil [188 353])
+            ("isPrime" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [365 366])
+                ("ma" variable nil (reparse-symbol function_parameters) [367 369]))              ) nil [353 532])
+            ("square" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [543 544]))              ) nil [532 562])
+            ("isPrime2" function (:arguments 
+              ( ("n" variable nil (reparse-symbol function_parameters) [575 576])
+                ("a" variable nil (reparse-symbol function_parameters) [580 581]))              ) nil [562 963])
+            ("find" function (:arguments 
+              ( ("nth" variable nil (reparse-symbol function_parameters) [972 975]))              ) nil [963 1205])
+            ("find" code nil nil [1205 1217]))          
+    :file "project_7.py"
+    :pointmax 1218
+    :fsize 1275
+    :lastmodtime '(20489 20168)
+    :unmatched-syntax '((NAME 1205 . 1209) ($EOI 1217 . 1217))
+    )
+   (semanticdb-table "md5.py"
+    :major-mode 'python-mode
+    :tags 
+        '( ("sys" include nil nil [1 11]))          
+    :file "md5.py"
+    :pointmax 12
+    :fsize 12
+    :lastmodtime '(20466 48199)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!drive_d!home!abc!python2!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.0"
+  )

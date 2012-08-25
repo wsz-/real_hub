@@ -1,0 +1,17 @@
+#+TITLE: 例子
+#+TAG: abc
+* Tasks
+** DONE Start new org file for tutorialCT
+   CLOSED: [2012-08-10 周五 13:49]
+** DONE sdafsadf
+   CLOSED: [2012-08-10 周五 13:46]
+** DONE Outline documment
+   CLOSED: [2012-08-10 周五 13:49]
+** DONE 操作员列表
+   CLOSED: [2012-08-10 周五 14:19]
+** 
+* Intro
+** Ob[[www.baidu.com][百度]]
+** Oc[[file:test.lisp][sdf]]
+* The									:abc:
+* 

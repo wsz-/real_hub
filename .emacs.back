@@ -1,0 +1,101 @@
+(add-to-list 'load-path "d:/home/emacs-23.4/site-lisp/slime/")
+(setq inferior-lisp-program "d:/home/emacs-23.4/bin/clisp/clisp.exe")
+(require 'slime)
+(slime-setup)
+;;Emacs23 for windows 字体设置
+(setq w32-charset-info-alist
+(cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
+(setq default-frame-alist
+(append
+'((font . "fontset-gbk")) default-frame-alist))
+(create-fontset-from-fontset-spec
+"-outline-Courier New-normal-r-normal-normal-13-927-96-96-c-*-fontset-gbk")
+(set-fontset-font
+"fontset-default" nil
+"-outline-新宋体-normal-r-normal-*-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+(set-fontset-font
+"fontset-gbk" 'kana
+"-outline-新宋体-normal-r-normal-*-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+(set-fontset-font
+"fontset-gbk" 'han
+"-outline-新宋体-normal-r-normal-*-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+(set-fontset-font
+"fontset-gbk" 'cjk-misc
+"-outline-新宋体-normal-r-normal-*-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+(set-fontset-font
+"fontset-gbk" 'symbol
+"-outline-新宋体-normal-r-normal-*-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+(set-default-font "fontset-gbk")
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py'" . python-mode))
+;;Code highlighting produced by Actipro CodeHighlighter (freeware)http://www.CodeHighlighter.com/-->(require 'auto-complete)
+;(require 'auto-complete-config)
+;(global-auto-complete-mode t)
+(setq-default ac-sources '(ac-source-words-in-same-mode-buffers))
+(add-hook 'emacs-lisp-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-symbols)))
+(add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
+(set-face-background 'ac-candidate-face "lightgray")
+(set-face-underline 'ac-candidate-face "darkgray")
+(set-face-background 'ac-selection-face "steelblue") ;;; 设置比上面截图中更好看的背景颜色
+(define-key ac-completing-map "\M-n" 'ac-next)  ;;; 列表中通过按M-n来向下移动
+(define-key ac-completing-map "\M-p" 'ac-previous)
+(setq ac-auto-start 2)
+(setq ac-dwim t)
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(require 'pycomplete)
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+(setq interpreter-mode-alist(cons '("python" . python-mode)
+                           interpreter-mode-alist))
+(put 'upcase-region 'disabled nil)
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-c\C-m" 'execute-extended-command)
+(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\C-c\C-k" 'kill-region)
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-todo-keywords '((sequencep "TODO" "正处理" "待废弃" "|" "DONE" "已废弃")))
+(setq org-agenda-files (list "~/org/work.org"
+                             "~/org/home.org"
+			     "~/org/java.org"))
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(Org-agenda-files (quote ("~/org/work.org" "~/org/home.org" "~/org/java.org"))))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+(setq org-default-notes-file "~/.notes") 
+;;日期
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+(display-time)
+
+(setq todo-file-do "~/emacs/todo/do")
+(setq todo-file-done "~/emacs/todo/done")
+(setq todo-file-top "~/emacs/todo/top")
+
+(setq diary-file "~/emacs/diary")
+(setq diary-mail-addr "you@your.email.address")
+(add-hook 'diary-hook 'appt-make-list)
+;;打开约会提醒功能
+(setq appt-issue-message t)
+;;绑定快捷键
+(global-set-key [(f9)] 'list-bookmarks)
+(global-set-key [(f12)] 'org-remember)
+(global-set-key [(f11)] 'calendar)
+(global-set-key [(f10)] 'todo-mode)

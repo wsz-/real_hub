@@ -1,0 +1,11 @@
+private String pid;
+private String ptitle;
+private String pzQz;
+private String traceNo;
+private String codeType;
+private String xzType;
+private String xzKm;
+private String isAuto;
+private String txDate;
+private String txTime;
+private String txTel;

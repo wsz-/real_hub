@@ -1,0 +1,18 @@
+;; Object home/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "home/"
+  :tables (list 
+   (semanticdb-table "Test.java"
+    :major-mode 'java-mode
+    :tags nil
+    :file "Test.java"
+    :pointmax 115
+    :fsize 84
+    :lastmodtime '(20522 5977)
+    :unmatched-syntax '((BRACE_BLOCK 26 . 115) (BRACE_BLOCK 26 . 106) (BRACE_BLOCK 26 . 102) (BRACE_BLOCK 26 . 97))
+    )
+   )
+  :file "!drive_d!home!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.0"
+  )

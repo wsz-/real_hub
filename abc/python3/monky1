@@ -1,0 +1,13 @@
+monkey=1
+peach=0
+peaches=1
+peach=peaches;
+while monkey<=5:
+    if peaches%5==1 and peaches/5!=0 :
+        peach=(peach/5)*4
+        monekey++
+    else:
+        peaches++
+        peach=peaches
+        monkey=1
+

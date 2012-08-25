@@ -1,0 +1,9 @@
+flag 0未审核 1审核 2签字 3核查  凭证状态
+jz_flag 0 1 记账
+isbc 0 1 标错
+is_auto 0 1 自动
+
+iscx 0 1冲销 2被冲销
+is_cash_type 0 1
+flow 2审核 3签字 4核查
+jie_zhang_flag 结账标识

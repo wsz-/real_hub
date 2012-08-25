@@ -1,0 +1,17 @@
+cd
+cd /d c:/Users/Sam/Desktop/
+dir
+cp python2 d:/home/abc
+copy python2 d:/home/abc
+copy -h
+copy /?
+xcopy.exe /?
+xcopy python2 d:/home/abc
+xcopy ./python2 d:/home/abc
+exit
+etags -R
+./emacs-24.1/bin/etags.exe -R
+./emacs-24.1/bin/etags -R
+exit
+etags -R
+exit
