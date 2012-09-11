@@ -1,7 +1,8 @@
-(add-to-list 'load-path "d:/home/emacs-24.1/site-lisp/slime/")
-(setq inferior-lisp-program "d:/home/emacs-24.1/bin/clisp/clisp.exe")
-(load "d:/home/emacs-24.1/site-lisp/wsz/wsz.el") 
-(add-to-list 'load-path "d:/home/emacs-24.1/site-lisp/emacs-wiki/")
+(add-to-list 'load-path "d:/emacs-24.1/site-lisp/slime/")
+(add-to-list 'load-path "d:/emacs-24.1/site-lisp/color-theme")
+(setq inferior-lisp-program "d:/emacs-24.1/bin/clisp/clisp.exe")
+(load "d:/home/abc/wsz/wsz.el") 
+(add-to-list 'load-path "d:/emacs-24.1/site-lisp/emacs-wiki/")
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (global-font-lock-mode t)
@@ -14,9 +15,13 @@
   (interactive)
   (w32-send-sys-command 61488 arg))
 (global-set-key [(control f12)] 'w32-maximize-frame)
-;;
+(require 'color-theme)
+(eval-after-load "color-theme" 
+  '(progn (color-theme-initialize)
+	  (color-theme-robin-hood)))
+;;0oO
 (global-set-key "\C-c9" (lambda() (interactive)( find-file "~/.emacs")))
-(global-set-key "\C-c5" (lambda() (interactive)( dired "d:/home/emacs-24.1/")))
+(global-set-key "\C-c5" (lambda() (interactive)( dired "d:/emacs-24.1/")))
 (global-set-key "\C-c0" 'eshell)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq frame-title-format "emacs@%b")
@@ -41,6 +46,7 @@
            (enlarge-window 10))))
 (global-set-key [C-M-right] (function (lambda()(interactive)
            (enlarge-window-horizontally 10))))
+;(set-default-font " -outline-微软雅黑-normal-normal-normal-sans-14-*-*-*-p-*-iso8859-1")
 ;;;;for change default font size.
 ;; (create-fontset-from-fontset-spec
 ;;   "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-most,
@@ -87,29 +93,26 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-todo-keywords '((sequencep "TODO" "正处理" "待废弃" "|" "DONE" "已废弃")))
-(setq org-agenda-files (list "~/org/work.org"
-                             "~/org/home.org"
-			     "~/org/java.org"
-			     "~/org/learn.org"))
-(setq org-default-notes-file "~/.notes")
+(setq org-agenda-files (list "~/abc/org/work.org"
+                             "~/abc/org/home.org"
+			     "~/abc/org/java.org"
+			     "~/abc/org/learn.org"))
+(setq org-default-notes-file "~/abc/.notes")
 ;;日期
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
 (display-time)
 ;;TODO 模式
-(setq todo-file-do "~/emacs/todo/do")
-(setq todo-file-done "~/emacs/todo/done")
-(setq todo-file-top "~/emacs/todo/top")
-(setq diary-file "~/emacs/diary")
+(setq todo-file-do "~/abc/emacs/todo/do")
+(setq todo-file-done "~/abc/emacs/todo/done")
+(setq todo-file-top "~/abc/emacs/todo/top")
+(setq diary-file "~/abc/emacs/diary")
 (setq diary-mail-addr "ivyicy@qq.com")
-(add-hook 'diary-hook 'appt-make-list)
-;;打开约会提醒功能
-(setq appt-issue-message t)
 ;;绑定快捷键
 (global-set-key [(f9)] 'list-bookmarks)
 (global-set-key [(f12)] 'org-remember)
 (global-set-key [(f11)] 'calendar)
-(global-set-key [(f10)] 'todo-mode)
+(global-set-key [(f10)] 'calculator)
 (global-set-key [(control \?)] 'comment-line-or-uncomment-it)
 (global-set-key [(meta ?/)] 'hippie-expand)   
 (setq hippie-expand-try-functions-list   
@@ -181,9 +184,6 @@
     (setq beginpos (+ 1 beginpos))
     )
   )
-
-(global-set-key [f12] 'change-case-region)
-
 (defun my-move-region-up (p)                 ;;向上移动本行
   "move current region up"
   (interactive "p")
@@ -309,3 +309,47 @@
         (when first (other-window 1)))
     (message "There are not exactly 2 windows.")))
 (global-set-key [(control f5)] 'my-retate-windows)
+;;;;;;;;;;;;;;;;;;;;;
+;;设置日历的一些颜色
+;; (setq calendar-load-hook
+;;       '(lambda ()
+;; 	 (set-face-foreground 'diary-face "skyblue")
+;; 	 (set-face-background 'holiday-face "slate blue")
+;; 	 (set-face-foreground 'holiday-face "white")))
+;; 设置阴历显示，在 calendar 上用 pC 显示阴历
+(setq chinese-calendar-celestial-stem
+      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
+(setq chinese-calendar-terrestrial-branch
+      ["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
+;; 设置 calendar 的显示
+;(setq calendar-remove-frame-by-deleting t)
+(setq calendar-view-diary-initially-flag t)
+(setq calendar-week-start-day 1) ; 设置星期一为每周的第一天
+;(setq mark-diary-entries-in-calendar t) ; 标记calendar上有diary的日期
+;(setq mark-holidays-in-calendar t) ; 为了突出有diary的日期，calendar上不标记节日
+;(setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示一堆节日
+;; 去掉不关心的节日，设定自己在意的节日，在 calendar 上用 h 显示节日
+(setq christian-holidays nil)
+(setq hebrew-holidays nil)
+(setq islamic-holidays nil)
+(setq solar-holidays nil)
+(setq local-holidays t)
+(setq general-holidays '((holiday-fixed 1 1 "元旦")
+			 (holiday-fixed 2 14 "情人节")
+			 (holiday-fixed 3 14 "白色情人节")
+			 (holiday-fixed 4 1 "愚人节")
+			 (holiday-fixed 5 1 "劳动节")
+			 (holiday-float 5 0 2 "母亲节")
+			 (holiday-fixed 6 1 "儿童节")
+			 (holiday-float 6 0 3 "父亲节")
+			 (holiday-fixed 7 1 "建党节")
+			 (holiday-fixed 8 1 "建军节")
+			 (holiday-fixed 9 10 "教师节")
+			 (holiday-fixed 10 1 "国庆节")
+			 (holiday-fixed 12 25 "圣诞节")))
+;;约会
+(appt-activate)
+(put 'downcase-region 'disabled nil)
+;; (setq shell-file-name "C:/cygwin/bin/bash.exe")
+(when (string-match "w32" (prin1-to-string window-system))
+  (setq explicit-shell-file-name "C:/cygwin/bin/bash.exe"))

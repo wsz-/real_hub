@@ -1,22 +1,27 @@
-(add-to-list 'load-path "d:/home/emacs-24.1/site-lisp/slime/")
-(setq inferior-lisp-program "d:/home/emacs-24.1/bin/clisp/clisp.exe")
-(load "d:/home/emacs-24.1/site-lisp/wsz/wsz.el") 
-(add-to-list 'load-path "d:/home/emacs-24.1/site-lisp/emacs-wiki/")
+(add-to-list 'load-path "d:/emacs-24.1/site-lisp/slime/")
+(add-to-list 'load-path "d:/emacs-24.1/site-lisp/color-theme")
+(setq inferior-lisp-program "d:/emacs-24.1/bin/clisp/clisp.exe")
+(load "d:/home/abc/wsz/wsz.el") 
+(add-to-list 'load-path "d:/emacs-24.1/site-lisp/emacs-wiki/")
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (global-font-lock-mode t)
 (global-set-key "\C-z" nil)
-;; æ‰“å¼€å›¾ç‰‡
+;; ´ò¿ªÍ¼Æ¬
 (auto-image-file-mode t)
-;; æœ€å¤§åŒ–
+;; ×î´ó»¯
 (defun w32-maximize-frame (&optional arg)
-  "æœ€å¤§åŒ–"
+  "×î´ó»¯"
   (interactive)
   (w32-send-sys-command 61488 arg))
 (global-set-key [(control f12)] 'w32-maximize-frame)
-;;
+(require 'color-theme)
+(eval-after-load "color-theme" 
+  '(progn (color-theme-initialize)
+	  (color-theme-robin-hood)))
+;;0oO
 (global-set-key "\C-c9" (lambda() (interactive)( find-file "~/.emacs")))
-(global-set-key "\C-c5" (lambda() (interactive)( dired "d:/home/emacs-24.1/")))
+(global-set-key "\C-c5" (lambda() (interactive)( dired "d:/emacs-24.1/")))
 (global-set-key "\C-c0" 'eshell)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq frame-title-format "emacs@%b")
@@ -41,53 +46,19 @@
            (enlarge-window 10))))
 (global-set-key [C-M-right] (function (lambda()(interactive)
            (enlarge-window-horizontally 10))))
+;(set-default-font " -outline-Î¢ÈíÑÅºÚ-normal-normal-normal-sans-14-*-*-*-p-*-iso8859-1")
 ;;;;for change default font size.
 ;; (create-fontset-from-fontset-spec
 ;;   "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-most,
-;; chinese-gbk:-*-å®‹ä½“-normal-r-*-*-14-*-*-*-*-*-gbk*-*,
-;; chinese-gb2312:-*-å®‹ä½“-normal-r-*-*-14-*-*-*-*-*-gb2312*-*,
-;; chinese-cns11643-5:-*-å®‹ä½“-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
-;; chinese-cns11643-6:-*-å®‹ä½“-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
-;; chinese-cns11643-7:-*-å®‹ä½“-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+;; chinese-gbk:-*-ËÎÌå-normal-r-*-*-14-*-*-*-*-*-gbk*-*,
+;; chinese-gb2312:-*-ËÎÌå-normal-r-*-*-14-*-*-*-*-*-gb2312*-*,
+;; chinese-cns11643-5:-*-ËÎÌå-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+;; chinese-cns11643-6:-*-ËÎÌå-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+;; chinese-cns11643-7:-*-ËÎÌå-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
 ;; korean-ksc5601:-*-Batang-normal-r-*-*-14-*-*-*-c-*-ksc5601.1987*-*,
-;; chinese-big5-1:-*-å®‹ä½“-normal-r-*-*-14-*-*-*-*-*-big5*-*,
-;; chinese-big5-2:-*-å®‹ä½“-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+;; chinese-big5-1:-*-ËÎÌå-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+;; chinese-big5-2:-*-ËÎÌå-normal-r-*-*-14-*-*-*-*-*-big5*-*,
 ;; japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
- ;; emacs-wiki
-(require 'emacs-wiki)
-(setq emacs-wiki-projects
-      '(("ProgrammingWiki" .
-         ((emacs-wiki-directories . ("~/wiki/programming"))
-          (emacs-wiki-project-server-prefix . "../programming")
-          (emacs-wiki-publishing-directory
-           . "~/personal-site/programming")))
-        ("SystemWiki" .
-         ((emacs-wiki-directories . ("~/wiki/system"))
-          (emacs-wiki-project-server-prefix . "../system")
-          (emacs-wiki-publishing-directory
-           . "~/personal-site/system")))
-        ))
-(add-hook 'emacs-wiki-mode-hook
-          (lambda ()
-            (define-key emacs-wiki-mode-map (kbd "C-c C-h") 'emacs-wiki-preview-html)
-            (define-key emacs-wiki-mode-map (kbd "C-c C-c") 'emacs-wiki-preview-source)))
-(defun emacs-wiki-preview-source ()
-  (interactive)
-  (emacs-wiki-publish-this-page)
-  (find-file (emacs-wiki-published-file)))
-(defun emacs-wiki-preview-html ()
-  (interactive)
-  (emacs-wiki-publish-this-page)
-  (browse-url (emacs-wiki-published-file)))
-(setq emacs-wiki-directories '("~/WiKi")) 
-(setq emacs-wiki-meta-charset "gb2312") 
-(setq emacs-wiki-style-sheet "<link rel="stylesheet" type="text/css" href="core.css">") 
-(setq emacs-wiki-charset-default "gb2312")
-(setq emacs-wiki-coding-default (quote gb2312)) 
-(setq emacs-wiki-index-page "WikiIndex") 
-(setq emacs-wiki-maintainer "mailto:ivyicy@qq.com") 
-(setq emacs-wiki-file-ignore-regexp "\`\(\.?#.*\|.*,v\|.*\.html\|.*\.css\|.*~\ 
-|.*\.wiki\|.*.cache\|\.\.?\)\'") 
 (require 'auto-complete)
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
@@ -96,8 +67,8 @@
 (add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
 (set-face-background 'ac-candidate-face "lightgray")
 (set-face-underline 'ac-candidate-face "darkgray")
-(set-face-background 'ac-selection-face "steelblue") ;;; è®¾ç½®æ¯”ä¸Šé¢æˆªå›¾ä¸­æ›´å¥½çœ‹çš„èƒŒæ™¯é¢œè‰²
-(define-key ac-completing-map "\M-n" 'ac-next)  ;;; åˆ—è¡¨ä¸­é€šè¿‡æŒ‰M-næ¥å‘ä¸‹ç§»åŠ¨
+(set-face-background 'ac-selection-face "steelblue") ;;; ÉèÖÃ±ÈÉÏÃæ½ØÍ¼ÖĞ¸üºÃ¿´µÄ±³¾°ÑÕÉ«
+(define-key ac-completing-map "\M-n" 'ac-next)  ;;; ÁĞ±íÖĞÍ¨¹ı°´M-nÀ´ÏòÏÂÒÆ¶¯
 (define-key ac-completing-map "\M-p" 'ac-previous)
 (setq ac-auto-start 2)
 (setq ac-dwim t)
@@ -109,7 +80,7 @@
 (autoload 'pymacs-eval "pymacs" nil t)
 (autoload 'pymacs-exec "pymacs" nil t)
 (autoload 'pymacs-load "pymacs" nil t)
-(pymacs-load "ropemacs" "repo-")
+;;(pymacs-load "ropemacs" "repo-")
 (setq ropemacs-enable-autoimport t)
 (require 'pycomplete)
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
@@ -121,30 +92,27 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
-(setq org-todo-keywords '((sequencep "TODO" "æ­£å¤„ç†" "å¾…åºŸå¼ƒ" "|" "DONE" "å·²åºŸå¼ƒ")))
-(setq org-agenda-files (list "~/org/work.org"
-                             "~/org/home.org"
-			     "~/org/java.org"
-			     "~/org/learn.org"))
-(setq org-default-notes-file "~/.notes")
-;;æ—¥æœŸ
+(setq org-todo-keywords '((sequencep "TODO" "Õı´¦Àí" "´ı·ÏÆú" "|" "DONE" "ÒÑ·ÏÆú")))
+(setq org-agenda-files (list "~/abc/org/work.org"
+                             "~/abc/org/home.org"
+			     "~/abc/org/java.org"
+			     "~/abc/org/learn.org"))
+(setq org-default-notes-file "~/abc/.notes")
+;;ÈÕÆÚ
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
 (display-time)
-;;TODO æ¨¡å¼
-(setq todo-file-do "~/emacs/todo/do")
-(setq todo-file-done "~/emacs/todo/done")
-(setq todo-file-top "~/emacs/todo/top")
-(setq diary-file "~/emacs/diary")
+;;TODO Ä£Ê½
+(setq todo-file-do "~/abc/emacs/todo/do")
+(setq todo-file-done "~/abc/emacs/todo/done")
+(setq todo-file-top "~/abc/emacs/todo/top")
+(setq diary-file "~/abc/emacs/diary")
 (setq diary-mail-addr "ivyicy@qq.com")
-(add-hook 'diary-hook 'appt-make-list)
-;;æ‰“å¼€çº¦ä¼šæé†’åŠŸèƒ½
-(setq appt-issue-message t)
-;;ç»‘å®šå¿«æ·é”®
+;;°ó¶¨¿ì½İ¼ü
 (global-set-key [(f9)] 'list-bookmarks)
 (global-set-key [(f12)] 'org-remember)
 (global-set-key [(f11)] 'calendar)
-(global-set-key [(f10)] 'todo-mode)
+(global-set-key [(f10)] 'calculator)
 (global-set-key [(control \?)] 'comment-line-or-uncomment-it)
 (global-set-key [(meta ?/)] 'hippie-expand)   
 (setq hippie-expand-try-functions-list   
@@ -161,11 +129,11 @@
 	try-complete-lisp-symbol   
 	try-complete-lisp-symbol-partially   
 	try-expand-whole-kill))
-;;ç¦ç”¨å¯åŠ¨ç”»é¢
+;;½ûÓÃÆô¶¯»­Ãæ
 (setq inhibit-startup-message t)
-;;å°ºå¯¸
+;;³ß´ç
 (setq initial-frame-alist '( (width . 90) (height . 35)))
-;;é«˜äº®æ˜¾ç¤ºæˆå¯¹æ‹¬å·
+;;¸ßÁÁÏÔÊ¾³É¶ÔÀ¨ºÅ
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
 (linum-mode t)
@@ -174,7 +142,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(safe-local-variable-values (quote ((todo-categories "å¼‚å¸¸" "æ­£å¸¸" "java")))))
+ '(safe-local-variable-values (quote ((todo-categories "Òì³£" "Õı³£" "java")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -216,10 +184,7 @@
     (setq beginpos (+ 1 beginpos))
     )
   )
-
-(global-set-key [f12] 'change-case-region)
-
-(defun my-move-region-up (p)                 ;;å‘ä¸Šç§»åŠ¨æœ¬è¡Œ
+(defun my-move-region-up (p)                 ;;ÏòÉÏÒÆ¶¯±¾ĞĞ
   "move current region up"
   (interactive "p")
   (let ((c (current-column)))
@@ -233,7 +198,7 @@
 
 ))
 
-(defun my-move-line-up (p)                  ;;å‘ä¸Šç§»åŠ¨æœ¬è¡Œ
+(defun my-move-line-up (p)                  ;;ÏòÉÏÒÆ¶¯±¾ĞĞ
   "move current line up"
   (interactive "p")
   (let ((c (current-column)))
@@ -245,7 +210,7 @@
     (previous-line 1)
     (move-to-column c)))
 
-(defun my-move-line-down (p)                ;;å‘ä¸‹ç§»åŠ¨æœ¬è¡Œ
+(defun my-move-line-down (p)                ;;ÏòÏÂÒÆ¶¯±¾ĞĞ
   "move current line down"
   (interactive "p")
   (let ((c (current-column)))
@@ -256,7 +221,7 @@
     (yank)
     (previous-line 1)
     (move-to-column c)))
-(defun my-dup-line-down ()                  ;;å¤åˆ¶æœ¬è¡Œåˆ°ä¸‹ä¸€è¡Œ
+(defun my-dup-line-down ()                  ;;¸´ÖÆ±¾ĞĞµ½ÏÂÒ»ĞĞ
   "duplicate this line at next line"
   (interactive)
   (let ((c (current-column)))
@@ -283,7 +248,7 @@
 
 (add-hook 'post-command-hook 'ue-selection-update-cont)
 
-(defun ue-select-line-down-continued ()     ;;è¿ç»­å¤åˆ¶å¤šè¡Œ
+(defun ue-select-line-down-continued ()     ;;Á¬Ğø¸´ÖÆ¶àĞĞ
   "like Shift+down in UltraEdit, but do no selection.
 ;; Just put these continuous lines all toghether as a new item in kill-ring.
 ;; Messages will appear in minibuffer telling you how many lines were copied.
@@ -344,3 +309,46 @@
         (when first (other-window 1)))
     (message "There are not exactly 2 windows.")))
 (global-set-key [(control f5)] 'my-retate-windows)
+;;;;;;;;;;;;;;;;;;;;;
+;;ÉèÖÃÈÕÀúµÄÒ»Ğ©ÑÕÉ«
+;; (setq calendar-load-hook
+;;       '(lambda ()
+;; 	 (set-face-foreground 'diary-face "skyblue")
+;; 	 (set-face-background 'holiday-face "slate blue")
+;; 	 (set-face-foreground 'holiday-face "white")))
+;; ÉèÖÃÒõÀúÏÔÊ¾£¬ÔÚ calendar ÉÏÓÃ pC ÏÔÊ¾ÒõÀú
+(setq chinese-calendar-celestial-stem
+      ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ı" "ĞÁ" "ÈÉ" "¹ï"])
+(setq chinese-calendar-terrestrial-branch
+      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îì" "Î´" "Éê" "ÓÏ" "Ğç" "º¥"])
+;; ÉèÖÃ calendar µÄÏÔÊ¾
+;(setq calendar-remove-frame-by-deleting t)
+(setq calendar-view-diary-initially-flag t)
+(setq calendar-week-start-day 1) ; ÉèÖÃĞÇÆÚÒ»ÎªÃ¿ÖÜµÄµÚÒ»Ìì
+;(setq mark-diary-entries-in-calendar t) ; ±ê¼ÇcalendarÉÏÓĞdiaryµÄÈÕÆÚ
+;(setq mark-holidays-in-calendar t) ; ÎªÁËÍ»³öÓĞdiaryµÄÈÕÆÚ£¬calendarÉÏ²»±ê¼Ç½ÚÈÕ
+;(setq view-calendar-holidays-initially nil) ; ´ò¿ªcalendarµÄÊ±ºò²»ÏÔÊ¾Ò»¶Ñ½ÚÈÕ
+;; È¥µô²»¹ØĞÄµÄ½ÚÈÕ£¬Éè¶¨×Ô¼ºÔÚÒâµÄ½ÚÈÕ£¬ÔÚ calendar ÉÏÓÃ h ÏÔÊ¾½ÚÈÕ
+(setq christian-holidays nil)
+(setq hebrew-holidays nil)
+(setq islamic-holidays nil)
+(setq solar-holidays nil)
+(setq general-holidays '((holiday-fixed 1 1 "Ôªµ©")
+			 (holiday-fixed 2 14 "ÇéÈË½Ú")
+			 (holiday-fixed 3 14 "°×É«ÇéÈË½Ú")
+			 (holiday-fixed 4 1 "ÓŞÈË½Ú")
+			 (holiday-fixed 5 1 "ÀÍ¶¯½Ú")
+			 (holiday-float 5 0 2 "Ä¸Ç×½Ú")
+			 (holiday-fixed 6 1 "¶ùÍ¯½Ú")
+			 (holiday-float 6 0 3 "¸¸Ç×½Ú")
+			 (holiday-fixed 7 1 "½¨µ³½Ú")
+			 (holiday-fixed 8 1 "½¨¾ü½Ú")
+			 (holiday-fixed 9 10 "½ÌÊ¦½Ú")
+			 (holiday-fixed 10 1 "¹úÇì½Ú")
+			 (holiday-fixed 12 25 "Ê¥µ®½Ú")))
+;;Ô¼»á
+(appt-activate)
+(put 'downcase-region 'disabled nil)
+;; (setq shell-file-name "C:/cygwin/bin/bash.exe")
+(when (string-match "w32" (prin1-to-string window-system))
+  (setq explicit-shell-file-name "C:/cygwin/bin/bash.exe"))

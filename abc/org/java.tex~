@@ -1,0 +1,46 @@
+% Created 2012-08-13 周一 17:50
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+
+\title{java}
+\author{}
+\date{13 八月 2012}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\vspace*{1cm}
+\section{\textbf{DONE} 冲销凭证制单人   ,name :普通:}
+\label{sec-1}
+
+  \texttt{SCHEDULED:} \textit{2012-08-11 周六 12:00} \texttt{CLOSED:} \textit{2012-08-11 周六 11:24}\newline
+
+\section{\textbf{DONE} 打印，加图片 :普通:}
+\label{sec-2}
+
+  \texttt{SCHEDULED:} \textit{2012-08-11 周六 14:00} \texttt{CLOSED:} \textit{2012-08-13 周一 08:29}\newline
+\section{\textbf{DONE} 导出 :普通:}
+\label{sec-3}
+
+ \texttt{SCHEDULED:} \textit{2012-08-13 周一 11:30} \texttt{CLOSED:} \textit{2012-08-13 周一 16:18}\newline
+\section{\textbf{TODO} 测试\hyperref[www.baicu.com]{abc}}
+\label{sec-4}
+
+\subsection{\includegraphics[width=10em]{./a.jpg}}
+\label{sec-4.1}
+
+  \texttt{SCHEDULED:} \textit{2012-08-13 周一}\newline
+
+\end{document}

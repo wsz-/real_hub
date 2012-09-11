@@ -1,0 +1,20 @@
+#+TITLE java日志
+#+TAGS:
+* DONE 列表操作员字段直接取						 :普通:
+  SCHEDULED: <2012-08-10 周五 15:20> CLOSED: [2012-08-11 周六 10:30]
+* DONE bug								 :普通:
+  SCHEDULED: <2012-08-10 周五> CLOSED: [2012-08-10 周五 16:11]
+* TODO 合并查询与普通列表 						 :延迟:
+  - 新项目
+* DONE 冲销凭证制单人	,name						 :普通:
+  SCHEDULED: <2012-08-11 周六 12:00> CLOSED: [2012-08-11 周六 11:24]
+
+* DONE 打印，加图片							 :普通:
+  SCHEDULED: <2012-08-11 周六 14:00> CLOSED: [2012-08-13 周一 08:29]
+* DONE 导出								 :普通:
+ SCHEDULED: <2012-08-13 周一 11:30> CLOSED: [2012-08-13 周一 16:18]
+* 已废弃 打印
+  CLOSED: [2012-08-15 周三 08:52]
+* REST
+REST:
+est的全称是Representational State Transfer（可表述的状态转移），这并不是一个新概念。它的基本含义是每个URL都唯一代表某个资源，针对这个资源的操作可以抽象为4种：创建，读取，更改，删除，分别用HTTP的4个标准方法POST、GET、PUT、DELETE来对应.Using @Consumes and @Produces to Customize Requests and Responses http://www.myeclipseide.com/documentation/quickstarts/webservices_rest/  需要翻墙// TIey  http://fandayrockworld.iteye.com/blog/1030268 

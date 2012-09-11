@@ -14,7 +14,7 @@ def findPrime2(n=100):
         if isPrime2(start):
             result.append(start)
         start+=2
-    return result
+    return result`
 def isPrime(x,ma=60):
     if x==0 or x==1:
         return False

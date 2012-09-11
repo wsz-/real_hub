@@ -37,8 +37,7 @@ class BaiduImage:
         self.opener.addheaders = [
             ("User-agent", "Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.1) Gecko/20090704 Firefox/3.5"),
             ("Accept", "*/*")]
- 
- 
+
     """ 得到当前页面中图片的链接地址 """
     def get_image_links(self):
         try:

@@ -1,0 +1,52 @@
+var exe=require('child_process').exec
+function start(response){
+    console.log("Request hander start********");
+    _res(response)
+    response.write("start**")
+    _res_end(response)
+}
+function exec(response){
+    console.log('R ***********');
+    // exe('find /v /n "ss" .\\home.7z',function(error,stdout,stderr){
+    exe('dir',function(error,stdout,stderr){
+	function ss(callbac){
+	    var time=0
+	    for(var i=0;i<100000000;i++){
+		s=s+i
+		if(i==100000000-1){
+		    // if(time<=10){
+		    // 	i=0
+		    // 	time+=1
+		    // 	continue
+		    // }
+		    callbac(s)
+		}
+	    }
+	}
+	function call(s){
+	    _res(response)
+	    response.write(""+error)
+	    response.write(""+stdout)
+	    response.write(""+stderr)
+	    response.write("ooooooooooooooooooooooooooooooooo "+s)
+	    _res_end(response)
+	}
+	s=0
+	ss(call)
+    });
+}
+function _res(response){
+    response.writeHead(200, {"Content-Type": "text/plain"});
+}
+function _res_end(response){
+    response.end();
+}
+function upload(response){
+    console.log("Request hander upload");
+    _res(response)
+    response.write("upload**")
+    _res_end(response)
+}
+exports.start=start
+exports.upload=upload
+exports.exec=exec

@@ -17,3 +17,39 @@ python jdstbu.py
 python jdstbu.py 
 python jdstbu.py 
 exit
+gpg
+gpg -export
+gpg - export
+gpg - export passwd
+gpg -export passwd
+exit
+ls
+rm passwd.org
+exit
+delete passwd.org.gpg
+del passwd.org.gpg 
+rm passwd.org.gpg\~
+rm passwd.org.gpg 
+ls
+exit
+exit
+ls
+find
+find /?
+find --help
+C:/cygwin/bin/bash.exe
+exit
+exit
+ls
+exit
+cd d:/
+ls
+ls home.zip
+ls home
+mkdir home/nodejs
+mv ./*.js home/nodejs/
+xcopy ./*.js home/nodejs/
+xcopy *.js home/nodejs/
+mv //?
+mv /?
+exit

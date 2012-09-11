@@ -1,0 +1,25 @@
+;;该文件用于学习elisp和sicp
+(defun square (x)
+  (* x x))
+
+(defun square-list-1 (lst)
+  (defun iter (item result)
+    ;; (if (equalp nil item)
+    (if (equalp nil item)
+	result
+      (iter (cdr item)
+	    (cons result
+		  (square (car item))))))
+  (iter lst nil))
+(defun square-list (lst)
+  (defun iter (item result)
+    ;; (if (equalp nil item)
+    (if (equalp nil item)
+	result
+      (iter (cdr item)
+	    (cons (square (car item))
+		  result))))
+  (iter lst nil))
+(square-list '(1 2))
+(square-list-1 '(1 2))
+(cons (square (car (cdr '(1 2)))) nil)

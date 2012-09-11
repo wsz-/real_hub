@@ -1,0 +1,15 @@
+#+STYLE: <link rel="stylesheet" type="text/css" href="./style.css">
+* 凭证字缓存-取
+**  NewVoucherBo.java中getPz(...)。
+    + 名称：pzZiBeanList
+    + 内容：List<PzZiBean>
+    + 如果为空则从数据库中取，不更新缓存。
+* 凭证-存
++ 保存内容为Map，Map中存放凭证表和凭证分录表中用于展示凭证的数据。
++ 新增和保存凭证时，在BO层更新缓存。
++ key值为凭证编号。
+
+* 凭证-取
++ 保存内容为Map，Map中存放凭证表和凭证分录表中用于展示凭证的数据。
++ 任何获取凭证信息的情况下，先从缓存取，如果没有更新缓存，再取。
++ key值为凭证编号
