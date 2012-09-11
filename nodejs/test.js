@@ -6,7 +6,15 @@ function start(route,handle){
 	// response.writeHead(200, {"Content-Type": "text/plain"});
 	// response.write("<h>request received</h>");
 	// response.write("<span> "+pathname+"</span>");
-	route(pathname,handle,response)
+	var postData=''
+	request.setEncoding('utf8')
+	request.addListener('data',function(chunk){
+	    postData+=chunk
+	    console.log(chunk+'/////');
+	})
+	request.addListener('end',function(){
+	    route(pathname,handle,response,postDatap)
+	})
     }
     http.createServer(onRequest).listen(8888);
 }
