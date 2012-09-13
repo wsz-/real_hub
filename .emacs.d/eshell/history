@@ -53,3 +53,5 @@ xcopy *.js home/nodejs/
 mv //?
 mv /?
 exit
+mongo
+mongo
