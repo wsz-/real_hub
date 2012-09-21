@@ -1,0 +1,62 @@
+# -*- coding: cp936 -*-
+import urllib
+import urllib2
+import re
+import cookielib
+import threading
+def look():
+    import sqlite3
+    import time
+    now=time.strftime('%x-%X',time.localtime())
+    con=sqlite3.connect('d:/home/data.db3')
+    cur=con.cursor()
+    d=cur.execute('select * from baidu_linukso')
+    for i in d.fetchall():
+        print i
+    con.close()
+def save(lst):
+    import sqlite3
+    import time
+    now=time.strftime('%x-%X',time.localtime())
+    con=sqlite3.connect('d:/home/data.db3')
+    con.text_factory = str
+    cur=con.cursor()
+    sql='''insert into baidu_linukso (id,date,count) values(?,?,?)'''
+    try:
+        cur.execute('create table if not exists baidu_linukso (id,date,count)')
+    except:
+        pass
+    for k,v in lst.items():
+        cur.execute(sql,(k,now,v))
+    con.commit()
+    con.close()
+cj=cookielib.CookieJar()
+opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+urllib2.install_opener(opener)
+# s= urllib2.urlopen('http://www.baidu.com').read()
+header={'User-Agent':'Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2'}
+def f(i):
+    try:
+        so=urllib2.urlopen('http://tieba.baidu.com/f?kw=linukso&pn=%s',str(i)).read()
+        title=re.compile(r'tb_icon_author.*?><a.*?>(.*?)</a>')
+        l=title.findall(so)
+        return l
+    except:
+        return None
+# f(0)
+all=[]
+for i in range(0,55):
+    result=f(i*50)
+    if result:
+        all.extend(result)
+l_s={}
+def to_dict():
+    for i in all:
+        i=i.decode('gbk').encode('utf8')
+        try:
+            l_s[i]=l_s[i]+1
+        except:
+            l_s[i]=1
+to_dict()
+for k,v in l_s.items():
+    print k,v

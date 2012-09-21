@@ -44,3 +44,40 @@ Sep 11, 2012
 Sep 12, 2012 
     凭证列表，冲、错
     标错弹出层，去掉外边框
+Sep 13, 2012 
+    讨论现金流量分析
+Sep 14, 2012 
+    凭证整理样式
+    弹出框样式
+    CAST(note_no AS CHAR)	to_char(note_no)整理ora   
+Sep 15, 2012 
+    凭证列表，显示个数，iszf=0,jz_flag=0
+	制单
+		标错个数
+	审核
+		当前人，flag
+	签字
+		当前人，flag=1,is_cash_type=1
+	核查
+		flag=2,is_c._t=1||1,0
+	记账
+	凭证列表
+    凭证展示：
+	and(flow,tel_flow),now_flow,nega=false
+	1.定当前人是否具备岗位
+	2.	
+    智能搜索
+Sep 18, 2012 
+    <script type='text/javascript' src='<%=request.getContextPath()%>/dwr/interface/ShowCntDwr.js'></script>
+    chageShowCnt("OAD");
+    凭证列表，冲错
+Sep 18, 2012 
+    待处理凭证特殊显示
+    待处理特殊显示引起凭证列表智能查询bug
+Sep 19, 2012 
+    凭证整理样式
+    ifnull nvl
+    cast as  toNumber toChar
+    concat(a,b) a|b
+Sep 20, 2012 
+    表表配置样式
