@@ -80,4 +80,6 @@ Sep 19, 2012
     cast as  toNumber toChar
     concat(a,b) a|b
 Sep 20, 2012 
-    表表配置样式
+    报表配置样式，凭证字智能查询
+Sep 21, 2012 
+    财务报表样式

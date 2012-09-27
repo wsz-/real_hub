@@ -41,4 +41,16 @@ def test_thread():
     t1=threading.Thread(target=func_1)
     t.start()
     t1.start()
-test_thread()
+local=threading.local()
+local.tname='main'
+def t_local():
+    def func():
+        local.tname='t_local'
+        print local.tname
+    t=threading.Thread(target=func)
+    t.start()
+    t.join()
+    print local.tname,1
+if __name__=='__main__':
+    # test_thread()
+    # t_local()
