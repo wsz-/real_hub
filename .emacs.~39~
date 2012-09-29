@@ -46,19 +46,19 @@
            (enlarge-window 10))))
 (global-set-key [C-M-right] (function (lambda()(interactive)
            (enlarge-window-horizontally 10))))
-;(set-default-font " -outline-微软雅黑-normal-normal-normal-sans-14-*-*-*-p-*-iso8859-1")
+(set-default-font " -outline-微软雅黑-normal-normal-normal-sans-14-*-*-*-p-*-iso8859-1")
 ;;;;for change default font size.
-;; (create-fontset-from-fontset-spec
-;;   "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-most,
-;; chinese-gbk:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gbk*-*,
-;; chinese-gb2312:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gb2312*-*,
-;; chinese-cns11643-5:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
-;; chinese-cns11643-6:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
-;; chinese-cns11643-7:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
-;; korean-ksc5601:-*-Batang-normal-r-*-*-14-*-*-*-c-*-ksc5601.1987*-*,
-;; chinese-big5-1:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
-;; chinese-big5-2:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
-;; japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
+(create-fontset-from-fontset-spec
+  "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-most,
+chinese-gbk:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-gb2312:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gb2312*-*,
+chinese-cns11643-5:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-cns11643-6:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+chinese-cns11643-7:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+korean-ksc5601:-*-Batang-normal-r-*-*-14-*-*-*-c-*-ksc5601.1987*-*,
+chinese-big5-1:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+chinese-big5-2:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
 (require 'auto-complete)
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
@@ -142,13 +142,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(safe-local-variable-values (quote ((todo-categories "异常" "正常" "java")))))
+ '(display-time-mode t)
+ '(safe-local-variable-values (quote ((todo-categories "异常" "正常" "java"))))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "楷体" :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
 (put 'upcase-region 'disabled nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -326,7 +329,7 @@
 (setq calendar-view-diary-initially-flag t)
 (setq calendar-week-start-day 1) ; 设置星期一为每周的第一天
 ;(setq mark-diary-entries-in-calendar t) ; 标记calendar上有diary的日期
-;(setq mark-holidays-in-calendar t) ; 为了突出有diary的日期，calendar上不标记节日
+(setq mark-holidays-in-calendar t) ; 为了突出有diary的日期，calendar上不标记节日
 ;(setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示一堆节日
 ;; 去掉不关心的节日，设定自己在意的节日，在 calendar 上用 h 显示节日
 (setq christian-holidays nil)
