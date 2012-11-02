@@ -55,3 +55,33 @@ mv /?
 exit
 mongo
 mongo
+node
+cd ..
+ls
+mkdir django
+cd django/
+ls
+django-admin.py startproject mysite
+exit
+django-admin.py startproject mysite
+exit
+django-admin.py startproject mysite
+django-admin.py 
+exit
+ls
+ls ..
+ls
+ll
+mkdir templates
+exit
+cd templates/
+pwd
+exitd:/home/abc/django/mysite/mysite/templates
+exit
+ls
+cd ..
+python manage.py shell
+ls
+cd templates/
+mkdir books
+exit

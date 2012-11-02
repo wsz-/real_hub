@@ -13,7 +13,7 @@ function start(route,handle){
 	    console.log(chunk+'/////');
 	})
 	request.addListener('end',function(){
-	    route(pathname,handle,response,postDatap)
+	    route(pathname,handle,response,postData)
 	})
     }
     http.createServer(onRequest).listen(8888);

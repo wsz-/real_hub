@@ -1,0 +1,735 @@
+(|SYSTEM|::|VERSION| '(20060802.))
+#0Y |CHARSET|::|UTF-8|
+#Y(#:|1 5 (IN-PACKAGE :SWANK)-1|
+   #17Y(00 00 00 00 00 00 00 00 00 01 DA 31 E6 0F 01 19 01)
+   ("SWANK" |COMMON-LISP|::|*PACKAGE*|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|7 9 (DEFVAR *USE-DEDICATED-OUTPUT-STREAM* NIL ...)-2|
+   #30Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB 63 31 52 DB DC DD
+        2D 03 04 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*USE-DEDICATED-OUTPUT-STREAM*|)
+    |SWANK|::|*USE-DEDICATED-OUTPUT-STREAM*| |COMMON-LISP|::|VARIABLE|
+    "When T swank will attempt to create a second connection to Emacs
+which is used just to send output."
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|11 12 (DEFVAR *DEDICATED-OUTPUT-STREAM-PORT* 0 ...)-3|
+   #30Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB DC 31 52 DB DD DE
+        2D 03 05 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*DEDICATED-OUTPUT-STREAM-PORT*|)
+    |SWANK|::|*DEDICATED-OUTPUT-STREAM-PORT*| 0. |COMMON-LISP|::|VARIABLE|
+    "Which port we should use for the dedicated output stream."
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|14 17 (DEFVAR *DEDICATED-OUTPUT-STREAM-BUFFERING* (IF # T ...) ...)-4|
+   #37Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 0B DB 6B 02 C8 5A 1D 01
+        02 14 31 52 DB DE DF 2D 03 06 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*DEDICATED-OUTPUT-STREAM-BUFFERING*|)
+    |SWANK|::|*DEDICATED-OUTPUT-STREAM-BUFFERING*|
+    |SWANK|::|*COMMUNICATION-STYLE*| :|SPAWN| |COMMON-LISP|::|VARIABLE|
+    "The buffering scheme that should be used for the output stream.
+Valid values are nil, t, :line"
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|19 43 (DEFUN OPEN-STREAMS (CONNECTION PROPERTIES) ...)-5|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|OPEN-STREAMS| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|OPEN-STREAMS|
+       #109Y(00 00 00 00 02 00 00 00 06 03 00 2B 01 7F 03 00 00 9D 2B 01 AC 6D
+             00 01 0E 01 1D 0B 68 02 00 B1 DC 38 01 72 86 30 03 14 AD 6F 04 92
+             01 07 68 04 00 6F 05 2F 06 0B 03 00 AC 68 04 00 72 70 68 05 00 E1
+             70 08 68 06 00 E3 AD 8F 33 14 68 07 00 B3 6D 0A 01 E5 E6 6E 03 0D
+             E3 AE E8 AF 32 30 16 02 16 01 AF AF 68 07 00 B0 B0 40 05 19 0A)
+       (#Y(|SWANK|::|OPEN-STREAMS-1|
+           #119Y(02 00 01 00 00 00 00 00 06 01 2A 2B 02 07 01 01 0B 00 00 C6 0B
+                 00 01 6B 02 06 01 00 22 2D 06 00 00 10 02 00 10 03 C9 10 05 00
+                 10 06 68 0C 00 AA 2B 01 00 0B 00 00 4B 07 28 B0 AF 6D 08 02 B1
+                 6D 09 01 57 0A B0 36 00 16 06 1B 25 68 00 01 36 00 19 02 58 67
+                 00 00 01 76 00 AD 36 01 18 02 01 19 02 68 04 00 B2 AD 6F 0B AE
+                 6F 0C 2D 03 0D 16 01 4D 16 02 12 04 19 02)
+           (|COMMON-LISP|::|NIL|
+            #Y(|SWANK|::|OPEN-STREAMS-1-1|
+               #35Y(02 00 01 00 00 00 00 00 06 01 C5 50 10 DB 0E 02 5D 10 02 2E
+                    03 11 16 03 18 02 01 19 01 63 64 40 02 19 01)
+               (#1=#:|SIMPLE-RESTART-29555|
+                #.(|SYSTEM|::|MAKE-RESTART| :|NAME| '|SWANK|::|ABORT-READ|
+                   :|INVOKE-TAG| '#1# :|REPORT|
+                   #'(|COMMON-LISP|::|LAMBDA| (|COMMON-LISP|::|STREAM|)
+                      (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|STREAM|
+                       "Abort reading input from Emacs.")))
+                |SYSTEM|::|*ACTIVE-RESTARTS*|
+                |SWANK|::|READ-USER-INPUT-FROM-EMACS|)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+               |COMMON-LISP|::|NIL|)
+            |SWANK|::|*EMACS-CONNECTION*|
+            |SWANK-BACKEND|::|*PENDING-SLIME-INTERRUPTS*| 0.
+            |SWANK|::|*SEND-COUNTER*| |SWANK|::|*SLIME-INTERRUPTS-ENABLED*|
+            #(|COMMON-LISP|::|NIL|)
+            #Y(|SWANK|::|OPEN-STREAMS-1-2|
+               #18Y(00 00 00 00 00 00 00 00 06 01 2A 14 DB 2C 02 02 19 01)
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+                #Y(|SWANK|::|OPEN-STREAMS-1-2-1|
+                   #17Y(00 00 00 00 01 00 00 00 06 02 9E 0C 00 01 4E 01 00)
+                   (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+                   (|COMMON-LISP|::|CONDITION|) |COMMON-LISP|::|NIL|))
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+               () |COMMON-LISP|::|NIL|)
+            #Y(|SWANK|::|OPEN-STREAMS-1-3|
+               #38Y(01 00 00 00 00 00 00 00 06 01 DB 2A 14 6D 02 01 57 03 B0 36
+                    00 19 07 58 67 00 00 01 76 00 AD 36 01 18 01 00 19 02)
+               (|COMMON-LISP|::|NIL|
+                #Y(|SWANK|::|OPEN-STREAMS-1-3-1|
+                   #13Y(00 00 00 00 00 00 00 00 06 01 C5 19 01)
+                   (#Y(|SWANK|::|OPEN-STREAMS-1-3-1-1|
+                       #21Y(00 00 00 00 01 00 00 00 06 02 0E 00 1F 05 AD 2F 01
+                            19 02 19 02)
+                       (|SWANK|::|*DEBUG-ON-SWANK-PROTOCOL-ERROR*|
+                        |SWANK|::|INVOKE-DEFAULT-DEBUGGER|)
+                       (|COMMON-LISP|::|T| |COMMON-LISP|::|T|
+                        |COMMON-LISP|::|T|)
+                       (|COMMON-LISP|::|CONDITION|) |COMMON-LISP|::|NIL|))
+                   (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+                    |COMMON-LISP|::|NIL|)
+                   () |COMMON-LISP|::|NIL|)
+                #Y(|SWANK|::|OPEN-STREAMS-1-3-2|
+                   #28Y(00 00 00 00 00 00 00 00 06 01 69 01 01 DB AD DC 81 2F
+                        00 2A 14 6D 03 01 30 04 19 01)
+                   (|COMMON-LISP|::|NIL| |SWANK|::|CONNECTION| 7.
+                    #Y(|SWANK|::|OPEN-STREAMS-1-3-2-1|
+                       #19Y(00 00 00 00 00 00 00 00 06 01 99 01 69 01 02 30 02
+                            19 01)
+                       (|COMMON-LISP|::|NIL| |SWANK|::|SWANK-DEBUGGER-HOOK|
+                        |SWANK-BACKEND|::|CALL-WITH-DEBUGGER-HOOK|)
+                       (|COMMON-LISP|::|T| |COMMON-LISP|::|T|
+                        |COMMON-LISP|::|T|)
+                       () |COMMON-LISP|::|NIL|)
+                    |SWANK|::|CALL-WITH-BINDINGS|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+                   () |COMMON-LISP|::|NIL|)
+                (#(|SWANK|::|SWANK-ERROR| 13.) 0. . 0.))
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+               |COMMON-LISP|::|NIL|)
+            (#(|SWANK|::|SWANK-ERROR| 72.) 1. . 1.)
+            |SWANK|::|SWANK-ERROR.CONDITION| |SWANK|::|SWANK-ERROR.BACKTRACE|
+            |SWANK|::|CLOSE-CONNECTION|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+           |COMMON-LISP|::|NIL|)
+        |SWANK|::|*USE-DEDICATED-OUTPUT-STREAM*| :|CODING-SYSTEM|
+        |SWANK|::|OPEN-DEDICATED-OUTPUT-STREAM|
+        |SWANK-BACKEND|::|MAKE-INPUT-STREAM| |SWANK|::|MAKE-OUTPUT-FUNCTION|
+        |SWANK-BACKEND|::|MAKE-OUTPUT-STREAM| :|REPL-RESULT|
+        |SWANK|::|MAKE-OUTPUT-STREAM-FOR-TARGET|
+        |SWANK|::|MULTITHREADED-CONNECTION|
+        #Y(|SWANK|::|OPEN-STREAMS-2|
+           #17Y(00 00 00 00 00 00 00 00 06 01 69 00 01 2F 01 19 01)
+           (|COMMON-LISP|::|NIL| |SWANK|::|AUTO-FLUSH-LOOP|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+           |COMMON-LISP|::|NIL|)
+        :|NAME| "auto-flush-thread" |SWANK-BACKEND|::|SPAWN| 16.)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION| |SWANK|::|PROPERTIES|)
+       "Return the 5 streams for IO redirection:
+DEDICATED-OUTPUT INPUT OUTPUT IO REPL-RESULTS"))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|45 49 (DEFUN MAKE-OUTPUT-FUNCTION (CONNECTION) ...)-6|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|MAKE-OUTPUT-FUNCTION| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION|
+       #23Y(00 00 00 00 01 00 00 00 06 02 00 2B 01 7F 02 00 00 AC 2C 00 01 19
+            03)
+       (#Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1|
+           #129Y(02 00 01 00 01 00 00 00 06 02 2A 2B 01 7F 02 00 00 9D 2B 02 07
+                 00 01 0B 00 00 AC 2C 01 01 0B 00 01 6B 02 06 01 00 22 2D 06 00
+                 00 10 02 00 10 03 C9 10 05 00 10 06 68 0C 00 AA 2B 01 00 0B 00
+                 00 4B 07 28 B0 AF 6D 08 02 B1 6D 09 01 57 0A B0 36 00 16 06 1B
+                 25 68 00 01 36 00 19 04 58 67 00 00 01 76 00 AD 36 01 18 02 01
+                 19 02 68 04 00 B2 AD 6F 0B AE 6F 0C 2D 03 0D 16 01 4D 16 02 12
+                 04 19 04)
+           (|COMMON-LISP|::|NIL|
+            #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1-1|
+               #20Y(00 00 00 00 00 00 00 00 06 01 DB 69 01 01 7B 02 2F 02 19
+                    01)
+               (|COMMON-LISP|::|NIL| :|WRITE-STRING| |SWANK|::|SEND-TO-EMACS|)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+               |COMMON-LISP|::|NIL|)
+            |SWANK|::|*EMACS-CONNECTION*|
+            |SWANK-BACKEND|::|*PENDING-SLIME-INTERRUPTS*| 0.
+            |SWANK|::|*SEND-COUNTER*| |SWANK|::|*SLIME-INTERRUPTS-ENABLED*|
+            #(|COMMON-LISP|::|NIL|)
+            #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1-2|
+               #18Y(00 00 00 00 00 00 00 00 06 01 2A 14 DB 2C 02 02 19 01)
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+                #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1-2-1|
+                   #17Y(00 00 00 00 01 00 00 00 06 02 9E 0C 00 01 4E 01 00)
+                   (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+                   (|COMMON-LISP|::|CONDITION|) |COMMON-LISP|::|NIL|))
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+               () |COMMON-LISP|::|NIL|)
+            #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1-3|
+               #38Y(01 00 00 00 00 00 00 00 06 01 DB 2A 14 6D 02 01 57 03 B0 36
+                    00 19 07 58 67 00 00 01 76 00 AD 36 01 18 01 00 19 02)
+               (|COMMON-LISP|::|NIL|
+                #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1-3-1|
+                   #13Y(00 00 00 00 00 00 00 00 06 01 C5 19 01)
+                   (#Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1-3-1-1|
+                       #21Y(00 00 00 00 01 00 00 00 06 02 0E 00 1F 05 AD 2F 01
+                            19 02 19 02)
+                       (|SWANK|::|*DEBUG-ON-SWANK-PROTOCOL-ERROR*|
+                        |SWANK|::|INVOKE-DEFAULT-DEBUGGER|)
+                       (|COMMON-LISP|::|T| |COMMON-LISP|::|T|
+                        |COMMON-LISP|::|T|)
+                       (|COMMON-LISP|::|CONDITION|) |COMMON-LISP|::|NIL|))
+                   (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+                    |COMMON-LISP|::|NIL|)
+                   () |COMMON-LISP|::|NIL|)
+                #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1-3-2|
+                   #28Y(00 00 00 00 00 00 00 00 06 01 69 01 01 DB AD DC 81 2F
+                        00 2A 14 6D 03 01 30 04 19 01)
+                   (|COMMON-LISP|::|NIL| |SWANK|::|CONNECTION| 7.
+                    #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-1-3-2-1|
+                       #19Y(00 00 00 00 00 00 00 00 06 01 99 01 69 01 02 30 02
+                            19 01)
+                       (|COMMON-LISP|::|NIL| |SWANK|::|SWANK-DEBUGGER-HOOK|
+                        |SWANK-BACKEND|::|CALL-WITH-DEBUGGER-HOOK|)
+                       (|COMMON-LISP|::|T| |COMMON-LISP|::|T|
+                        |COMMON-LISP|::|T|)
+                       () |COMMON-LISP|::|NIL|)
+                    |SWANK|::|CALL-WITH-BINDINGS|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+                   () |COMMON-LISP|::|NIL|)
+                (#(|SWANK|::|SWANK-ERROR| 13.) 0. . 0.))
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+               |COMMON-LISP|::|NIL|)
+            (#(|SWANK|::|SWANK-ERROR| 82.) 1. . 1.)
+            |SWANK|::|SWANK-ERROR.CONDITION| |SWANK|::|SWANK-ERROR.BACKTRACE|
+            |SWANK|::|CLOSE-CONNECTION|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+           (|COMMON-LISP|::|STRING|) |COMMON-LISP|::|NIL|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+       (|SWANK|::|CONNECTION|) "Create function to send user output to Emacs."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|51 57 (DEFUN MAKE-OUTPUT-FUNCTION-FOR-TARGET (CONNECTION TARGET) ...)-7|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET|
+       #27Y(00 00 00 00 02 00 00 00 06 03 00 2B 02 7F 03 00 00 7F 02 00 01 AC
+            2C 00 01 19 04)
+       (#Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1|
+           #129Y(02 00 01 00 01 00 00 00 06 02 2A 2B 01 7F 02 00 00 9D 2B 02 07
+                 00 01 0B 00 00 AC 2C 01 01 0B 00 01 6B 02 06 01 00 22 2D 06 00
+                 00 10 02 00 10 03 C9 10 05 00 10 06 68 0C 00 AA 2B 01 00 0B 00
+                 00 4B 07 28 B0 AF 6D 08 02 B1 6D 09 01 57 0A B0 36 00 16 06 1B
+                 25 68 00 01 36 00 19 04 58 67 00 00 01 76 00 AD 36 01 18 02 01
+                 19 02 68 04 00 B2 AD 6F 0B AE 6F 0C 2D 03 0D 16 01 4D 16 02 12
+                 04 19 04)
+           (|COMMON-LISP|::|NIL|
+            #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1-1|
+               #44Y(02 00 01 00 00 00 00 00 06 01 C6 50 19 DC 0E 03 5D 10 03 DE
+                    69 01 01 69 02 02 7B 03 2F 05 11 16 03 18 02 01 19 01 63 64
+                    40 02 19 01)
+               (|COMMON-LISP|::|NIL| #1=#:|SIMPLE-RESTART-29660|
+                #.(|SYSTEM|::|MAKE-RESTART| :|NAME| '|COMMON-LISP|::|ABORT|
+                   :|INVOKE-TAG| '#1# :|REPORT|
+                   #'(|COMMON-LISP|::|LAMBDA| (|COMMON-LISP|::|STREAM|)
+                      (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|STREAM|
+                       "Abort sending output to Emacs.")))
+                |SYSTEM|::|*ACTIVE-RESTARTS*| :|WRITE-STRING|
+                |SWANK|::|SEND-TO-EMACS|)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+               |COMMON-LISP|::|NIL|)
+            |SWANK|::|*EMACS-CONNECTION*|
+            |SWANK-BACKEND|::|*PENDING-SLIME-INTERRUPTS*| 0.
+            |SWANK|::|*SEND-COUNTER*| |SWANK|::|*SLIME-INTERRUPTS-ENABLED*|
+            #(|COMMON-LISP|::|NIL|)
+            #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1-2|
+               #18Y(00 00 00 00 00 00 00 00 06 01 2A 14 DB 2C 02 02 19 01)
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+                #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1-2-1|
+                   #17Y(00 00 00 00 01 00 00 00 06 02 9E 0C 00 01 4E 01 00)
+                   (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+                   (|COMMON-LISP|::|CONDITION|) |COMMON-LISP|::|NIL|))
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+               () |COMMON-LISP|::|NIL|)
+            #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1-3|
+               #38Y(01 00 00 00 00 00 00 00 06 01 DB 2A 14 6D 02 01 57 03 B0 36
+                    00 19 07 58 67 00 00 01 76 00 AD 36 01 18 01 00 19 02)
+               (|COMMON-LISP|::|NIL|
+                #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1-3-1|
+                   #13Y(00 00 00 00 00 00 00 00 06 01 C5 19 01)
+                   (#Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1-3-1-1|
+                       #21Y(00 00 00 00 01 00 00 00 06 02 0E 00 1F 05 AD 2F 01
+                            19 02 19 02)
+                       (|SWANK|::|*DEBUG-ON-SWANK-PROTOCOL-ERROR*|
+                        |SWANK|::|INVOKE-DEFAULT-DEBUGGER|)
+                       (|COMMON-LISP|::|T| |COMMON-LISP|::|T|
+                        |COMMON-LISP|::|T|)
+                       (|COMMON-LISP|::|CONDITION|) |COMMON-LISP|::|NIL|))
+                   (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+                    |COMMON-LISP|::|NIL|)
+                   () |COMMON-LISP|::|NIL|)
+                #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1-3-2|
+                   #28Y(00 00 00 00 00 00 00 00 06 01 69 01 01 DB AD DC 81 2F
+                        00 2A 14 6D 03 01 30 04 19 01)
+                   (|COMMON-LISP|::|NIL| |SWANK|::|CONNECTION| 7.
+                    #Y(|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET-1-3-2-1|
+                       #19Y(00 00 00 00 00 00 00 00 06 01 99 01 69 01 02 30 02
+                            19 01)
+                       (|COMMON-LISP|::|NIL| |SWANK|::|SWANK-DEBUGGER-HOOK|
+                        |SWANK-BACKEND|::|CALL-WITH-DEBUGGER-HOOK|)
+                       (|COMMON-LISP|::|T| |COMMON-LISP|::|T|
+                        |COMMON-LISP|::|T|)
+                       () |COMMON-LISP|::|NIL|)
+                    |SWANK|::|CALL-WITH-BINDINGS|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+                   () |COMMON-LISP|::|NIL|)
+                (#(|SWANK|::|SWANK-ERROR| 13.) 0. . 0.))
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+               |COMMON-LISP|::|NIL|)
+            (#(|SWANK|::|SWANK-ERROR| 82.) 1. . 1.)
+            |SWANK|::|SWANK-ERROR.CONDITION| |SWANK|::|SWANK-ERROR.BACKTRACE|
+            |SWANK|::|CLOSE-CONNECTION|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+           (|COMMON-LISP|::|STRING|) |COMMON-LISP|::|NIL|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+       (|SWANK|::|CONNECTION| |SWANK|::|TARGET|)
+       "Create a function to send user output to a specific TARGET in Emacs."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|59 61 (DEFUN MAKE-OUTPUT-STREAM-FOR-TARGET (CONNECTION TARGET) ...)-8|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|MAKE-OUTPUT-STREAM-FOR-TARGET| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|MAKE-OUTPUT-STREAM-FOR-TARGET|
+       #18Y(00 00 00 00 02 00 00 00 06 03 AE AE 70 00 2F 01 19 03)
+       (|SWANK|::|MAKE-OUTPUT-FUNCTION-FOR-TARGET|
+        |SWANK-BACKEND|::|MAKE-OUTPUT-STREAM|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION| |SWANK|::|TARGET|)
+       "Create a stream that sends output to a specific TARGET in Emacs."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|63 86 (DEFUN OPEN-DEDICATED-OUTPUT-STREAM (CONNECTION CODING-SYSTEM) ...)-9|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|OPEN-DEDICATED-OUTPUT-STREAM| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|OPEN-DEDICATED-OUTPUT-STREAM|
+       #79Y(03 00 01 00 02 00 00 00 06 03 6B 00 6B 01 70 02 AE 6F 03 53 2E AF
+            6F 04 DF AD B4 7B 03 E0 B5 E1 72 2F 30 08 B0 E3 B1 E4 6B 0B E6 E7
+            6E 07 0E AC 2F 0F B1 2F 10 7D 05 15 16 01 54 05 00 00 01 1D 0B 1B
+            06 05 00 00 01 1D 03 14 2F 10 55 19 05)
+       (|SWANK|::|*LOOPBACK-INTERFACE*|
+        |SWANK|::|*DEDICATED-OUTPUT-STREAM-PORT*|
+        |SWANK-BACKEND|::|CREATE-SOCKET|
+        |SWANK|::|FIND-EXTERNAL-FORMAT-OR-LOSE| |SWANK-BACKEND|::|LOCAL-PORT|
+        :|OPEN-DEDICATED-OUTPUT-STREAM| |SWANK|::|CONNECTION| 2.
+        |SWANK|::|ENCODE-MESSAGE| :|EXTERNAL-FORMAT| :|BUFFERING|
+        |SWANK|::|*DEDICATED-OUTPUT-STREAM-BUFFERING*| :|TIMEOUT| 30.
+        |SWANK-BACKEND|::|ACCEPT-CONNECTION| |SWANK|::|AUTHENTICATE-CLIENT|
+        |SWANK-BACKEND|::|CLOSE-SOCKET|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION| |SWANK|::|CODING-SYSTEM|)
+       "Open a dedicated output connection to the Emacs on SOCKET-IO.
+Return an output stream suitable for writing program output.
+
+This is an optimized way for Lisp to deliver output to Emacs."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|88 97 (DEFUN FIND-REPL-THREAD (CONNECTION) ...)-10|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|FIND-REPL-THREAD| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|FIND-REPL-THREAD|
+       #48Y(00 00 00 00 01 00 00 00 06 02 2E 00 1D 18 DC AE DD 72 2F 93 00 14
+            AC 88 04 13 AE DF 70 06 DC B0 DD AF 32 30 19 04 2E 01 19 02 00 19
+            03 15 19 02)
+       (|SWANK|::|USE-THREADS-P| |SWANK-BACKEND|::|CURRENT-THREAD|
+        |SWANK|::|MULTITHREADED-CONNECTION| 15.
+        |SWANK-BACKEND|::|THREAD-ALIVE-P| "new-repl-thread"
+        |SWANK|::|SPAWN-REPL-THREAD|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|99 103 (DEFUN SPAWN-REPL-THREAD (CONNECTION NAME) ...)-11|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|SPAWN-REPL-THREAD| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|SPAWN-REPL-THREAD|
+       #28Y(00 00 00 00 02 00 00 00 06 03 00 2B 01 7F 03 00 00 AC 6D 00 01 DB
+            B0 2D 03 02 19 04)
+       (#Y(|SWANK|::|SPAWN-REPL-THREAD-1|
+           #21Y(00 00 00 00 00 00 00 00 06 01 6B 01 2A 14 6D 02 01 30 03 19 01)
+           (|COMMON-LISP|::|NIL| |SWANK|::|*DEFAULT-WORKER-THREAD-BINDINGS*|
+            #Y(|SWANK|::|SPAWN-REPL-THREAD-1-1|
+               #17Y(00 00 00 00 00 00 00 00 06 01 69 00 01 2F 01 19 01)
+               (|COMMON-LISP|::|NIL| |SWANK|::|REPL-LOOP|)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+               |COMMON-LISP|::|NIL|)
+            |SWANK|::|CALL-WITH-BINDINGS|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+           |COMMON-LISP|::|NIL|)
+        :|NAME| |SWANK-BACKEND|::|SPAWN|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION| |SWANK|::|NAME|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|105 106 (DEFUN REPL-LOOP (CONNECTION) ...)-12|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|REPL-LOOP| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|REPL-LOOP| #15Y(00 00 00 00 01 00 00 00 06 02 AD 2F 00 19 02)
+       (|SWANK|::|HANDLE-REQUESTS|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|108 132 (DEFSLIMEFUN CREATE-REPL (TARGET &KEY CODING-SYSTEM) ...)-13-1|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 3E 19 01)
+   (|SWANK|::|CREATE-REPL| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|CREATE-REPL|
+       #141Y(00 00 00 00 01 00 00 00 86 1C 01 00 00 00 3B 01 07 7D 01 93 02 0D
+             1B 03 93 02 08 DB 6F 02 2F 03 92 02 78 6B 04 AC DA B0 7B 02 30 05
+             E0 E1 AE E2 32 2F 7A E3 E1 AF E4 32 2F 7A E5 E1 B0 E6 8E 2F 05 E1
+             B0 E2 32 2F 7A E7 E1 B1 E2 32 2F 7A E8 E1 B2 E9 32 2F 7A EA E1 B3
+             E9 32 2F 7A EB E1 B4 E9 32 2F 7A 7B 07 E1 AE EC AF 32 30 16 01 AC
+             2F 13 EE AD 8F 33 0C AC EF 70 16 EE AE F1 AF 32 30 16 01 6B 18 71
+             CF 6B 18 6F 19 61 02 19 04)
+       (:|CODING-SYSTEM|
+        (|COMMON-LISP|::|EQ| |SWANK|::|TARGET| |COMMON-LISP|::|NIL|)
+        |SYSTEM|::|ASSERT-ERROR-STRING| |SYSTEM|::|SIMPLE-ASSERT-FAILED|
+        |SWANK|::|*EMACS-CONNECTION*|
+        |SWANK|::|INITIALIZE-STREAMS-FOR-CONNECTION|
+        |COMMON-LISP|::|*STANDARD-OUTPUT*| |SWANK|::|CONNECTION| 5.
+        |COMMON-LISP|::|*STANDARD-INPUT*| 4. |COMMON-LISP|::|*TRACE-OUTPUT*| 8.
+        |COMMON-LISP|::|*ERROR-OUTPUT*| |COMMON-LISP|::|*DEBUG-IO*| 6.
+        |COMMON-LISP|::|*QUERY-IO*| |COMMON-LISP|::|*TERMINAL-IO*| 7.
+        |SWANK|::|MAYBE-REDIRECT-GLOBAL-IO| |SWANK|::|MULTITHREADED-CONNECTION|
+        "repl-thread" |SWANK|::|SPAWN-REPL-THREAD| 15.
+        |COMMON-LISP|::|*PACKAGE*| |SWANK|::|PACKAGE-STRING-FOR-PROMPT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|TARGET| |COMMON-LISP|::|&KEY| |SWANK|::|CODING-SYSTEM|)
+       |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|108 132 (DEFSLIMEFUN CREATE-REPL (TARGET &KEY CODING-SYSTEM) ...)-13-2|
+   #18Y(00 00 00 00 00 00 00 00 00 01 DA DA 72 8B 31 D9 19 01)
+   (|SWANK|::|CREATE-REPL|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|134 142 (DEFUN INITIALIZE-STREAMS-FOR-CONNECTION (CONNECTION PROPERTIES) ...)-14|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|INITIALIZE-STREAMS-FOR-CONNECTION|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|INITIALIZE-STREAMS-FOR-CONNECTION|
+       #49Y(00 00 00 00 02 00 00 00 06 03 AE AE 30 00 42 05 DB B4 DC B3 32 30
+            DB B4 DD B0 32 30 DB B4 DE B1 32 30 DB B4 DF B2 32 30 DB B4 E0 AF
+            32 30 A4 19 08)
+       (|SWANK|::|OPEN-STREAMS| |SWANK|::|CONNECTION| 3. 6. 5. 4. 9.)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION| |SWANK|::|PROPERTIES|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|144 153 (DEFUN READ-USER-INPUT-FROM-EMACS NIL ...)-15|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|READ-USER-INPUT-FROM-EMACS| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|READ-USER-INPUT-FROM-EMACS|
+       #72Y(03 00 01 00 00 00 00 00 06 01 2E 00 14 38 01 31 90 DB 2E 02 14 AE
+            7B 03 2F 03 63 53 16 DE B0 CA 5D 7A 2F 06 5C 5C 78 7E 03 15 54 05
+            00 00 00 1D 08 1B 12 05 00 00 00 1C 0C E1 2E 02 14 67 00 00 01 7B
+            03 2F 03 55 19 03)
+       (|SWANK|::|MAKE-TAG| :|READ-STRING| |SWANK|::|CURRENT-THREAD-ID|
+        |SWANK|::|SEND-TO-EMACS| :|EMACS-RETURN-STRING| (|SWANK|::|VALUE|)
+        |SWANK|::|WAIT-FOR-EVENT| :|READ-ABORTED|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+       |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|155 157 (DEFVAR *LISTENER-EVAL-FUNCTION* 'REPL-EVAL)-16|
+   #24Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB DC 31 52 C6 19
+        01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*LISTENER-EVAL-FUNCTION*|)
+    |SWANK|::|*LISTENER-EVAL-FUNCTION*| |SWANK|::|REPL-EVAL|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|159 160 (DEFSLIMEFUN LISTENER-EVAL (STRING) ...)-17-1|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 3E 19 01)
+   (|SWANK|::|LISTENER-EVAL| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|LISTENER-EVAL|
+       #17Y(00 00 00 00 01 00 00 00 06 02 6B 00 AE 36 01 19 02)
+       (|SWANK|::|*LISTENER-EVAL-FUNCTION*|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|COMMON-LISP|::|STRING|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|159 160 (DEFSLIMEFUN LISTENER-EVAL (STRING) ...)-17-2|
+   #18Y(00 00 00 00 00 00 00 00 00 01 DA DA 72 8B 31 D9 19 01)
+   (|SWANK|::|LISTENER-EVAL|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|162 162 (DEFVAR *SEND-REPL-RESULTS-FUNCTION* 'SEND-REPL-RESULTS-TO-EMACS)-18|
+   #24Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB DC 31 52 C6 19
+        01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*SEND-REPL-RESULTS-FUNCTION*|)
+    |SWANK|::|*SEND-REPL-RESULTS-FUNCTION*|
+    |SWANK|::|SEND-REPL-RESULTS-TO-EMACS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|164 175 (DEFUN REPL-EVAL (STRING) ...)-19|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|REPL-EVAL| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|REPL-EVAL|
+       #29Y(00 00 00 00 01 00 00 00 06 02 00 2B 01 7F 02 00 00 2E 00 63 AD 6D
+            01 01 30 02 00 19 03)
+       (|SWANK|::|CLEAR-USER-INPUT|
+        #Y(|SWANK|::|REPL-EVAL-1|
+           #20Y(00 00 00 00 00 00 00 00 06 01 DB 2A 14 6D 02 01 30 03 19 01)
+           (|COMMON-LISP|::|NIL| "Retry SLIME REPL evaluation request."
+            #Y(|SWANK|::|REPL-EVAL-1-1|
+               #19Y(00 00 00 00 00 00 00 00 06 01 2A 14 6D 01 01 2F 02 19 01)
+               (|COMMON-LISP|::|NIL|
+                #Y(|SWANK|::|REPL-EVAL-1-1-1|
+                   #58Y(00 00 00 00 00 00 00 00 06 01 69 00 01 2F 01 42 02 0E
+                        02 0F 03 0E 04 0F 02 9E 5B 0F 04 0E 05 0F 06 0E 07 0F
+                        05 9E 0F 07 0E 08 0F 09 0E 0A 0F 08 9D 0F 0A 6B 0B AE
+                        36 01 19 03)
+                   (|COMMON-LISP|::|NIL| |SWANK|::|EVAL-REGION|
+                    |COMMON-LISP|::|**| |COMMON-LISP|::|***| |COMMON-LISP|::|*|
+                    |COMMON-LISP|::|//| |COMMON-LISP|::|///| |COMMON-LISP|::|/|
+                    |COMMON-LISP|::|++| |COMMON-LISP|::|+++| |COMMON-LISP|::|+|
+                    |SWANK|::|*SEND-REPL-RESULTS-FUNCTION*|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+                   () |COMMON-LISP|::|NIL|)
+                |SWANK|::|TRACK-PACKAGE|)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+               |COMMON-LISP|::|NIL|)
+            |SWANK|::|CALL-WITH-RETRY-RESTART|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+           |COMMON-LISP|::|NIL|)
+        |SWANK|::|CALL-WITH-BUFFER-SYNTAX|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|COMMON-LISP|::|STRING|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|177 180 (DEFSLIMEFUN CLEAR-REPL-VARIABLES NIL ...)-20-1|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 3E 19 01)
+   (|SWANK|::|CLEAR-REPL-VARIABLES| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|CLEAR-REPL-VARIABLES|
+       #30Y(00 00 00 00 00 00 00 00 06 01 DA 63 1B 09 87 01 00 14 63 31 52 83
+            01 AD 8D 94 73 00 19 03)
+       ((|COMMON-LISP|::|***| |COMMON-LISP|::|**| |COMMON-LISP|::|*|
+         |COMMON-LISP|::|///| |COMMON-LISP|::|//| |COMMON-LISP|::|/|
+         |COMMON-LISP|::|+++| |COMMON-LISP|::|++| |COMMON-LISP|::|+|))
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+       |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|177 180 (DEFSLIMEFUN CLEAR-REPL-VARIABLES NIL ...)-20-2|
+   #18Y(00 00 00 00 00 00 00 00 00 01 DA DA 72 8B 31 D9 19 01)
+   (|SWANK|::|CLEAR-REPL-VARIABLES|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|182 187 (DEFUN TRACK-PACKAGE (FUN) ...)-21|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|TRACK-PACKAGE| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|TRACK-PACKAGE|
+       #42Y(03 00 01 00 01 00 00 00 06 02 6B 00 53 04 B0 36 00 54 6B 00 05 00
+            00 00 22 0D DB 6B 00 71 CF 6B 00 6F 02 7B 03 2F 03 55 19 03)
+       (|COMMON-LISP|::|*PACKAGE*| :|NEW-PACKAGE|
+        |SWANK|::|PACKAGE-STRING-FOR-PROMPT| |SWANK|::|SEND-TO-EMACS|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|FUN|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|189 195 (DEFUN SEND-REPL-RESULTS-TO-EMACS (VALUES) ...)-22|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|SEND-REPL-RESULTS-TO-EMACS| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|SEND-REPL-RESULTS-TO-EMACS|
+       #50Y(00 00 00 00 01 00 00 00 06 02 38 01 31 8F 93 01 04 AD 63 1B 16 DA
+            2F 01 19 02 87 01 00 DC AD 71 88 DD 70 04 CA 5D 7A 2F 01 83 01 AD
+            8D 94 6B 00 19 04)
+       ((:|WRITE-STRING| "; No value" :|REPL-RESULT|) |SWANK|::|SEND-TO-EMACS|
+        :|WRITE-STRING| #\Newline |SWANK|::|CAT| (:|REPL-RESULT|))
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|COMMON-LISP|::|VALUES|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|197 200 (DEFSLIMEFUN REDIRECT-TRACE-OUTPUT (TARGET) ...)-23-1|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 3E 19 01)
+   (|SWANK|::|REDIRECT-TRACE-OUTPUT| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|REDIRECT-TRACE-OUTPUT|
+       #28Y(00 00 00 00 01 00 00 00 06 02 6B 00 6B 00 AF 70 01 DC AE DD AF 32
+            30 16 02 00 19 02)
+       (|SWANK|::|*EMACS-CONNECTION*| |SWANK|::|MAKE-OUTPUT-STREAM-FOR-TARGET|
+        |SWANK|::|CONNECTION| 8.)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|TARGET|) |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|197 200 (DEFSLIMEFUN REDIRECT-TRACE-OUTPUT (TARGET) ...)-23-2|
+   #18Y(00 00 00 00 00 00 00 00 00 01 DA DA 72 8B 31 D9 19 01)
+   (|SWANK|::|REDIRECT-TRACE-OUTPUT|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|204 229 (DEFVAR *GLOBALLY-REDIRECT-IO* NIL ...)-24|
+   #30Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB 63 31 52 DB DC DD
+        2D 03 04 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*GLOBALLY-REDIRECT-IO*|)
+    |SWANK|::|*GLOBALLY-REDIRECT-IO*| |COMMON-LISP|::|VARIABLE|
+    "When non-nil globally redirect all standard streams to Emacs."
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|231 236 (DEFVAR *SAVED-GLOBAL-STREAMS* 'NIL ...)-25|
+   #30Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB 63 31 52 DB DC DD
+        2D 03 04 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*SAVED-GLOBAL-STREAMS*|)
+    |SWANK|::|*SAVED-GLOBAL-STREAMS*| |COMMON-LISP|::|VARIABLE|
+    "A plist to save and restore redirected stream objects.
+E.g. the value for '*standard-output* holds the stream object
+for *standard-output* before we install our redirection."
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|238 265 (DEFUN SETUP-STREAM-INDIRECTION (STREAM-VAR &OPTIONAL STREAM) ...)-26|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|SETUP-STREAM-INDIRECTION| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|SETUP-STREAM-INDIRECTION|
+       #63Y(00 00 00 00 01 00 01 00 06 08 3D 01 DA AF 70 01 92 02 03 AF 31 4E
+            14 6B 02 B1 AE 6E 03 03 93 00 02 0F 02 16 01 DE AE 7B 02 31 5A AD
+            AD 30 05 AD 72 6C B1 AD 30 05 B1 E0 AE 7B 02 30 07 19 06)
+       (#:|CURRENT| |SWANK|::|PREFIXED-VAR| |SWANK|::|*SAVED-GLOBAL-STREAMS*|
+        |SYSTEM|::|%PUTF| |COMMON-LISP|::|SPECIAL| |COMMON-LISP|::|SET|
+        |COMMON-LISP|::|QUOTE| |SWANK-BACKEND|::|SET-DEFAULT-INITIAL-BINDING|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|STREAM-VAR| |COMMON-LISP|::|&OPTIONAL|
+        |COMMON-LISP|::|STREAM|)
+       "Setup redirection scaffolding for a global stream variable.
+Supposing (for example) STREAM-VAR is *STANDARD-INPUT*, this macro:
+
+1. Saves the value of *STANDARD-INPUT* in `*SAVED-GLOBAL-STREAMS*'.
+
+2. Creates *CURRENT-STANDARD-INPUT*, initially with the same value as
+*STANDARD-INPUT*.
+
+3. Assigns *STANDARD-INPUT* to a synonym stream pointing to
+*CURRENT-STANDARD-INPUT*.
+
+This has the effect of making *CURRENT-STANDARD-INPUT* contain the
+effective global value for *STANDARD-INPUT*. This way we can assign
+the effective global value even when *STANDARD-INPUT* is shadowed by a
+dynamic binding."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|267 270 (DEFUN PREFIXED-VAR (PREFIX VARIABLE-SYMBOL) ...)-27|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|PREFIXED-VAR| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|PREFIXED-VAR|
+       #52Y(00 00 00 00 02 00 00 00 06 03 AD 72 8D DA 38 01 72 46 38 02 72 76
+            B0 71 4B DB AE 31 8A AC AE 31 86 DC AE 31 8A AE AE 31 86 16 01 AC
+            81 77 00 DD 31 D6 19 04)
+       (1. #\* #\- :|SWANK|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|PREFIX| |SWANK|::|VARIABLE-SYMBOL|)
+       "(PREFIXED-VAR \"FOO\" '*BAR*) => SWANK::*FOO-BAR*"))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|272 274 (DEFVAR *STANDARD-OUTPUT-STREAMS* '(*STANDARD-OUTPUT* *ERROR-OUTPUT* *TRACE-OUTPUT*) ...)-28|
+   #30Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB DC 31 52 DB DD DE
+        2D 03 05 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*STANDARD-OUTPUT-STREAMS*|)
+    |SWANK|::|*STANDARD-OUTPUT-STREAMS*|
+    (|COMMON-LISP|::|*STANDARD-OUTPUT*| |COMMON-LISP|::|*ERROR-OUTPUT*|
+     |COMMON-LISP|::|*TRACE-OUTPUT*|)
+    |COMMON-LISP|::|VARIABLE| "The symbols naming standard output streams."
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|276 278 (DEFVAR *STANDARD-INPUT-STREAMS* '(*STANDARD-INPUT*) ...)-29|
+   #30Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB DC 31 52 DB DD DE
+        2D 03 05 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*STANDARD-INPUT-STREAMS*|)
+    |SWANK|::|*STANDARD-INPUT-STREAMS*| (|COMMON-LISP|::|*STANDARD-INPUT*|)
+    |COMMON-LISP|::|VARIABLE| "The symbols naming standard input streams."
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|280 282 (DEFVAR *STANDARD-IO-STREAMS* '(*DEBUG-IO* *QUERY-IO* *TERMINAL-IO*) ...)-30|
+   #30Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB DC 31 52 DB DD DE
+        2D 03 05 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*STANDARD-IO-STREAMS*|)
+    |SWANK|::|*STANDARD-IO-STREAMS*|
+    (|COMMON-LISP|::|*DEBUG-IO*| |COMMON-LISP|::|*QUERY-IO*|
+     |COMMON-LISP|::|*TERMINAL-IO*|)
+    |COMMON-LISP|::|VARIABLE| "The symbols naming standard io streams."
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|284 292 (DEFUN INIT-GLOBAL-STREAM-REDIRECTION NIL ...)-31|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|INIT-GLOBAL-STREAM-REDIRECTION|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|INIT-GLOBAL-STREAM-REDIRECTION|
+       #41Y(00 00 00 00 00 00 00 00 06 01 0E 00 1F 19 0E 01 1C 10 99 04 6B 05
+            6B 06 6B 07 73 03 22 33 00 18 19 01 DC 2F 03 19 01 19 01)
+       (|SWANK|::|*GLOBALLY-REDIRECT-IO*| |SWANK|::|*SAVED-GLOBAL-STREAMS*|
+        "Streams already redirected." |COMMON-LISP|::|WARN|
+        |SWANK|::|SETUP-STREAM-INDIRECTION|
+        |SWANK|::|*STANDARD-OUTPUT-STREAMS*|
+        |SWANK|::|*STANDARD-INPUT-STREAMS*| |SWANK|::|*STANDARD-IO-STREAMS*|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+       |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|294 315 (DEFUN GLOBALLY-REDIRECT-IO-TO-CONNECTION (CONNECTION) ...)-32|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|GLOBALLY-REDIRECT-IO-TO-CONNECTION|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|GLOBALLY-REDIRECT-IO-TO-CONNECTION|
+       #65Y(00 00 00 00 01 00 00 00 06 02 6B 00 63 1B 10 87 01 00 DB AD 70 02
+            DD B1 DE 72 2F 30 05 83 01 AD 8D 94 6C 16 02 6B 06 63 1B 10 87 01
+            00 E1 AD 70 02 DD B1 E2 72 2F 30 05 83 01 AD 8D 94 6C 00 19 04)
+       (|SWANK|::|*STANDARD-OUTPUT-STREAMS*| #:|CURRENT|
+        |SWANK|::|PREFIXED-VAR| |SWANK|::|CONNECTION| 5. |COMMON-LISP|::|SET|
+        |SWANK|::|*STANDARD-IO-STREAMS*| #:|CURRENT| 6.)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION|)
+       "Set the standard I/O streams to redirect to CONNECTION.
+Assigns *CURRENT-<STREAM>* for all standard streams."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|317 323 (DEFUN REVERT-GLOBAL-IO-REDIRECTION NIL ...)-33|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|REVERT-GLOBAL-IO-REDIRECTION| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|REVERT-GLOBAL-IO-REDIRECTION|
+       #47Y(00 00 00 00 00 00 00 00 06 01 6B 00 6B 01 6B 02 73 03 22 63 1B 12
+            87 01 00 DD AD 70 04 6B 05 AE 38 01 72 86 30 06 83 01 AD 8D 94 6A
+            00 19 03)
+       (|SWANK|::|*STANDARD-OUTPUT-STREAMS*|
+        |SWANK|::|*STANDARD-INPUT-STREAMS*| |SWANK|::|*STANDARD-IO-STREAMS*|
+        #:|CURRENT| |SWANK|::|PREFIXED-VAR| |SWANK|::|*SAVED-GLOBAL-STREAMS*|
+        |COMMON-LISP|::|SET|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+       "Set *CURRENT-<STREAM>* to *REAL-<STREAM>* for all standard streams."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|325 329 (DEFVAR *GLOBAL-STDIO-CONNECTION* NIL ...)-34|
+   #30Y(00 00 00 00 00 00 00 00 00 01 DA 31 5A DB 8C 4F 04 DB 63 31 52 DB DC DD
+        2D 03 04 C6 19 01)
+   ((|COMMON-LISP|::|SPECIAL| |SWANK|::|*GLOBAL-STDIO-CONNECTION*|)
+    |SWANK|::|*GLOBAL-STDIO-CONNECTION*| |COMMON-LISP|::|VARIABLE|
+    "The connection to which standard I/O streams are globally redirected.
+NIL if streams are not globally redirected."
+    |SYSTEM|::|%SET-DOCUMENTATION|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|331 338 (DEFUN MAYBE-REDIRECT-GLOBAL-IO (CONNECTION) ...)-35|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|MAYBE-REDIRECT-GLOBAL-IO| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|MAYBE-REDIRECT-GLOBAL-IO|
+       #42Y(00 00 00 00 01 00 00 00 06 02 0E 00 1F 1A 0E 01 59 1F 15 DC AE DD
+            32 2F 1F 0E 0E 04 1C 02 2E 05 9E 0F 01 14 2F 06 19 02 19 02)
+       (|SWANK|::|*GLOBALLY-REDIRECT-IO*| |SWANK|::|*GLOBAL-STDIO-CONNECTION*|
+        |SWANK|::|CONNECTION| 6. |SWANK|::|*SAVED-GLOBAL-STREAMS*|
+        |SWANK|::|INIT-GLOBAL-STREAM-REDIRECTION|
+        |SWANK|::|GLOBALLY-REDIRECT-IO-TO-CONNECTION|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CONNECTION|) "Consider globally redirecting to CONNECTION."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|340 349 (DEFUN UPDATE-REDIRECTION-AFTER-CLOSE (CLOSED-CONNECTION) ...)-36|
+   #20Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 DA DC 32 83 C5 19 01)
+   (|SWANK|::|UPDATE-REDIRECTION-AFTER-CLOSE|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|SWANK|::|UPDATE-REDIRECTION-AFTER-CLOSE|
+       #75Y(00 00 00 00 01 00 00 00 06 02 00 2B 01 7F 02 00 00 1B 15 2E 06 14
+            2F 08 19 03 DB AD AF 6D 02 01 DD 63 DA 2D 06 04 16 01 68 00 00 DA
+            AD 8F 33 6A 16 01 6B 05 06 01 00 5A 1F 0F 2E 06 1D 04 0E 07 1C 51
+            2E 09 00 0F 05 19 03 19 03)
+       (|SWANK|::|CONNECTION| |SWANK|::|CLOSED-CONNECTION|
+        #Y(|SWANK|::|UPDATE-REDIRECTION-AFTER-CLOSE-1|
+           #16Y(00 00 00 00 01 00 00 00 00 02 9E 0C 00 01 19 02)
+           (|COMMON-LISP|::|NIL|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        1. |SYSTEM|::|CHECK-TYPE-FAILED| |SWANK|::|*GLOBAL-STDIO-CONNECTION*|
+        |SWANK|::|DEFAULT-CONNECTION| |SWANK|::|*GLOBALLY-REDIRECT-IO*|
+        |SWANK|::|GLOBALLY-REDIRECT-IO-TO-CONNECTION|
+        |SWANK|::|REVERT-GLOBAL-IO-REDIRECTION|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SWANK|::|CLOSED-CONNECTION|)
+       "Update redirection after a connection closes."))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|351 351 (ADD-HOOK *CONNECTION-CLOSED-HOOK* 'UPDATE-REDIRECTION-AFTER-CLOSE)-37|
+   #21Y(00 00 00 00 00 00 00 00 00 01 DA 6B 01 38 03 31 BA 0F 01 19 01)
+   (|SWANK|::|UPDATE-REDIRECTION-AFTER-CLOSE|
+    |SWANK|::|*CONNECTION-CLOSED-HOOK*|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|353 353 (PROVIDE :SWANK-REPL)-38|
+   #15Y(00 00 00 00 00 00 00 00 00 01 DA 2F 01 19 01)
+   (:|SWANK-REPL| |COMMON-LISP|::|PROVIDE|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))

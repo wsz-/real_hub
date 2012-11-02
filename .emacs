@@ -7,6 +7,8 @@
 (tool-bar-mode -1)
 (global-font-lock-mode t)
 (global-set-key "\C-z" nil)
+;;utf-8
+(prefer-coding-system 'utf-8)
 ;; 打开图片
 (auto-image-file-mode t)
 ;; 最大化
@@ -141,7 +143,6 @@
 ;;高亮显示成对括号
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
-(linum-mode t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -360,3 +361,6 @@
 ;; (setq shell-file-name "C:/cygwin/bin/bash.exe")
 (when (string-match "w32" (prin1-to-string window-system))
   (setq explicit-shell-file-name "C:/cygwin/bin/bash.exe"))
+;; 行号
+(linum-mode t)
+(require 'slime)

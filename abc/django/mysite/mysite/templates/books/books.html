@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}List All Books{% endblock %}
+{% block content %}
+{% for book in all %}
+<ul>
+<li>书名：{{ book.title }}</li>
+<li>日期：{{ book.publication_date }}</li>
+</ul>
+{% endfor %}
+{% endblock %}

@@ -46,19 +46,24 @@
            (enlarge-window 10))))
 (global-set-key [C-M-right] (function (lambda()(interactive)
            (enlarge-window-horizontally 10))))
-(set-default-font " -outline-微软雅黑-normal-normal-normal-sans-14-*-*-*-p-*-iso8859-1")
+;; Setting English Font
+(set-face-attribute 'default nil :font "Consolas 12")   
+;; Chinese Font 
+(dolist (charset '(kana han symbol cjk-misc bopomofo))   
+  (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family "Microsoft Yahei"                                        :size 13)))
+;; (set-default-font " -outline-微软雅黑-normal-normal-normal-sans-14-*-*-*-p-*-iso8859-1")
 ;;;;for change default font size.
-(create-fontset-from-fontset-spec
-  "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-most,
-chinese-gbk:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gbk*-*,
-chinese-gb2312:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gb2312*-*,
-chinese-cns11643-5:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
-chinese-cns11643-6:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
-chinese-cns11643-7:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
-korean-ksc5601:-*-Batang-normal-r-*-*-14-*-*-*-c-*-ksc5601.1987*-*,
-chinese-big5-1:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
-chinese-big5-2:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
-japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
+;; (create-fontset-from-fontset-spec
+;;   "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-most,
+;; chinese-gbk:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gbk*-*,
+;; chinese-gb2312:-*-宋体-normal-r-*-*-14-*-*-*-*-*-gb2312*-*,
+;; chinese-cns11643-5:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+;; chinese-cns11643-6:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+;; chinese-cns11643-7:-*-宋体-medium-r-*-*-14-*-*-*-*-*-gbk*-*,
+;; korean-ksc5601:-*-Batang-normal-r-*-*-14-*-*-*-c-*-ksc5601.1987*-*,
+;; chinese-big5-1:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+;; chinese-big5-2:-*-宋体-normal-r-*-*-14-*-*-*-*-*-big5*-*,
+;; japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
 (require 'auto-complete)
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
@@ -136,7 +141,6 @@ japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
 ;;高亮显示成对括号
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
-(linum-mode t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -355,3 +359,5 @@ japanese-jisx0208:-*-MS UI Gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208*-*" t)
 ;; (setq shell-file-name "C:/cygwin/bin/bash.exe")
 (when (string-match "w32" (prin1-to-string window-system))
   (setq explicit-shell-file-name "C:/cygwin/bin/bash.exe"))
+;; 行号
+(linum-mode t)
